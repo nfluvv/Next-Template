@@ -33,15 +33,15 @@ A ready-to-use foundation for applications that need more than a simple login fo
 
 #### Register
 
-![Register]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/register.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/refs/heads/main/public/screenshots/register.PNG))
+![Register](https://github.com/nfluvv/next-template/blob/main/public/screenshots/register.PNG?raw=true)
 
 #### Settings
 
-![Settings Security]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings2.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/main/public/screenshots/settings2.PNG))
+![Settings Security](https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings2.PNG?raw=true)
 
 #### Settings — Security
 
-![Settings]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/refs/heads/main/public/screenshots/settings.PNG))
+![Settings](https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings.PNG?raw=true)
 
 
 ---
