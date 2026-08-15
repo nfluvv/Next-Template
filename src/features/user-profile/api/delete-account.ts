@@ -1,6 +1,6 @@
 'use server';
 
-import bcrypt from 'bcryptjs';
+import { compare } from 'bcrypt-ts';
 
 import { auth } from '@/shared/config/auth';
 import { prisma } from '@/shared/api/prisma';
@@ -32,7 +32,7 @@ export const deleteAccount = async (raw: unknown): Promise<DeleteResult> => {
 
   if (user.passwordHash) {
     if (!parsed.data.password) return { success: false, error: 'Введите пароль' };
-    const isValid = await bcrypt.compare(parsed.data.password, user.passwordHash);
+    const isValid = await compare(parsed.data.password, user.passwordHash);
     if (!isValid) return { success: false, error: 'Неверный пароль' };
   }
 

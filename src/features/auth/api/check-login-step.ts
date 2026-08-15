@@ -1,6 +1,6 @@
 'use server';
 
-import bcrypt from 'bcryptjs';
+import { compare } from "bcrypt-ts"
 
 import { prisma } from '@/shared/api/prisma';
 import { credentialsSchema } from '@/entities/user';
@@ -18,7 +18,7 @@ export const checkLoginStep = async (raw: unknown): Promise<LoginStep> => {
   const user = await prisma.user.findUnique({ where: { email: parsed.data.email } });
   if (!user?.passwordHash) return { step: 'invalid' };
 
-  const isValid = await bcrypt.compare(parsed.data.password, user.passwordHash);
+  const isValid = await compare(parsed.data.password, user.passwordHash);
   if (!isValid) return { step: 'invalid' };
 
   if (!user.emailVerified) return { step: 'unverified' };

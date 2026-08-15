@@ -1,6 +1,6 @@
 "use server"
 
-import bcrypt from "bcryptjs"
+import { hash } from "bcrypt-ts"
 import { prisma } from "@/shared/api/prisma"
 import { credentialsSchema, nameSchema } from "@/entities/user"
 import { generateUniqueUsername } from "@/entities/user/lib/generate-username"
@@ -34,7 +34,7 @@ export const registerUser = async (raw: unknown): Promise<RegisterResult> => {
   }
 
   if (existing && !existing.emailVerified) {
-    const passwordHash = await bcrypt.hash(password, 10);
+    const passwordHash = await hash(password, 10); 
     await prisma.user.update({
       where: { id: existing.id },
       data: { passwordHash, name },
@@ -49,7 +49,7 @@ export const registerUser = async (raw: unknown): Promise<RegisterResult> => {
   const token = await createVerificationToken(email)
   await sendVerificationEmail(email, token)
 
-  const passwordHash = await bcrypt.hash(password, 10)
+  const passwordHash = await hash(password, 10); 
 
   await prisma.user.create({
     data: { email, passwordHash, username, name },

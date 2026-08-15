@@ -1,6 +1,6 @@
 'use server';
 
-import bcrypt from 'bcryptjs';
+import { hash } from "bcrypt-ts"
 
 import { prisma } from '@/shared/api/prisma';
 import { resetPasswordSchema } from '@/entities/user';
@@ -19,7 +19,7 @@ export const resetPassword = async (token: string, raw: unknown): Promise<ResetR
     return { success: false, error: 'Ссылка устарела или уже была использована' };
   }
 
-  const passwordHash = await bcrypt.hash(parsed.data.newPassword, 10);
+  const passwordHash = await hash(parsed.data.newPassword, 10);
 
   await prisma.user.update({
     where: { email },

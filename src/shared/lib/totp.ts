@@ -1,7 +1,7 @@
 import 'server-only';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
 import * as OTPAuth from 'otpauth';
-import bcrypt from 'bcryptjs';
+import { compare, hash } from 'bcrypt-ts';
 
 const ENCRYPTION_KEY = Buffer.from(process.env.TWO_FACTOR_ENCRYPTION_KEY || '', 'hex');
 
@@ -61,12 +61,12 @@ export const generateBackupCodes = (count = 8) => {
 };
 
 export const hashBackupCodes = async (codes: string[]) => {
-  return Promise.all(codes.map((code) => bcrypt.hash(code, 10)));
+  return Promise.all(codes.map((code) => hash(code, 10)));
 };
 
 export const verifyBackupCode = async (code: string, hashedCodes: string[]) => {
   for (let i = 0; i < hashedCodes.length; i++) {
-    if (await bcrypt.compare(code, hashedCodes[i])) {
+    if (await compare(code, hashedCodes[i])) {
       return i; // индекс использованного кода — чтобы удалить именно его
     }
   }

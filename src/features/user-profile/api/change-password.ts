@@ -1,6 +1,6 @@
 "use server"
 
-import bcrypt from "bcryptjs"
+import { hash, compare } from "bcrypt-ts"
 
 import { auth } from "@/shared/config/auth"
 import { prisma } from "@/shared/api/prisma"
@@ -48,7 +48,7 @@ export const changePassword = async (
       return { success: false, error: "Введите текущий пароль" }
     }
 
-    const isValid = await bcrypt.compare(
+    const isValid = await compare(
       parsed.data.currentPassword,
       user.passwordHash
     )
@@ -57,7 +57,7 @@ export const changePassword = async (
     }
   }
 
-  const newPasswordHash = await bcrypt.hash(parsed.data.newPassword, 10)
+  const newPasswordHash = await hash(parsed.data.newPassword, 10)
 
   await prisma.user.update({
     where: { id: session.user.id },
