@@ -29,19 +29,20 @@ A ready-to-use foundation for applications that need more than a simple login fo
 
 #### Profile
 
-![Profile](https://github.com/nfluvv/next-template/blob/main/public/screenshots/profile.PNG?raw=true)
+![Profile]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/profile.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/main/public/screenshots/profile.PNG))
 
 #### Register
 
-![Register](https://github.com/nfluvv/next-template/blob/main/public/screenshots/register.PNG?raw=true)
+![Register]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/register.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/refs/heads/main/public/screenshots/register.PNG))
 
 #### Settings
 
-![Settings](https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings.PNG?raw=true)
+![Settings Security]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings2.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/main/public/screenshots/settings2.PNG))
 
 #### Settings — Security
 
-![Settings Security](https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings2.PNG?raw=true)
+![Settings]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/refs/heads/main/public/screenshots/settings.PNG))
+
 
 ---
 
