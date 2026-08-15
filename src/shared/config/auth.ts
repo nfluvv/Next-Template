@@ -3,7 +3,7 @@ import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
-import bcrypt from "bcryptjs"
+import { compare } from "bcrypt-ts"
 import { cookies } from "next/headers"
 import { decode } from "next-auth/jwt"
 
@@ -69,7 +69,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const user = await prisma.user.findUnique({ where: { email } })
         if (!user?.passwordHash) return null
 
-        const isValid = await bcrypt.compare(password, user.passwordHash)
+        const isValid = await compare(password, user.passwordHash)
         if (!isValid) return null
 
         if (!user.emailVerified) return null
