@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+:root {
+  --background: 0 0% 98%;
+  --foreground: 222 20% 12%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 20% 12%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 20% 12%;
+
+  --primary: 173 80% 24%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 210 20% 95%;
+  --secondary-foreground: 222 20% 12%;
+
+  --muted: 210 20% 95%;
+  --muted-foreground: 215 12% 45%;
+
+  --accent: 210 20% 95%;
+  --accent-foreground: 222 20% 12%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 214 16% 88%;
+  --input: 214 16% 88%;
+  --ring: 173 80% 24%;
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: 240 6% 5%;
+  --foreground: 0 0% 94%;
+
+  --card: 240 5% 7%;
+  --card-foreground: 0 0% 94%;
+
+  --popover: 240 5% 8%;
+  --popover-foreground: 0 0% 94%;
+
+  --primary: 352 100% 52%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 240 5% 11%;
+  --secondary-foreground: 0 0% 88%;
+
+  --muted: 240 5% 11%;
+  --muted-foreground: 240 4% 56%;
+
+  --accent: 240 5% 12%;
+  --accent-foreground: 0 0% 94%;
+
+  --destructive: 0 72% 46%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 5% 15%;
+  --input: 240 5% 15%;
+  --ring: 352 100% 52%;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html,
+body {
+  background: var(--color-background);
+}
+
+body {
+  color: var(--color-foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+  -webkit-text-fill-color: hsl(var(--foreground)) !important;
+  transition: background-color 5000000s ease-in-out 0s;
+  box-shadow:
+    0 0 0 1000px hsl(var(--card)) inset,
+    0 0 0 1px hsl(var(--border)) inset;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.toast {
+  background: white;
+  color: #18181b;
+  border: 1px solid #e4e4e7;
+}
+
+.dark .toast {
+  background: #18181b;
+  color: #fafafa;
+  border-color: #27272a;
+}

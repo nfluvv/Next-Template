@@ -1,0 +1,1 @@
+export { ForgotPasswordView } from './ui/forgot-password-view';
