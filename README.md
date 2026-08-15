@@ -29,7 +29,7 @@ A ready-to-use foundation for applications that need more than a simple login fo
 
 #### Profile
 
-![Profile]([https://github.com/nfluvv/next-template/blob/main/public/screenshots/profile.PNG?raw=true](https://raw.githubusercontent.com/nfluvv/next-template/main/public/screenshots/profile.PNG))
+![Profile](https://github.com/nfluvv/next-template/blob/main/public/screenshots/profile.PNG?raw=true)
 
 #### Register
 
