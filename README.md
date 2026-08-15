@@ -66,7 +66,89 @@ A ready-to-use foundation for applications that need more than a simple login fo
 
 ---
 
-### 🏗 Architecture & Codebase Structure
+### 🚀 Installation
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/nfluvv/next-template.git
+cd next-template
+```
+
+#### 2. Install dependencies
+
+```bash
+npm install
+```
+
+#### 3. Configure environment variables
+
+Create a `.env` file in the project root:
+
+```bash
+cp .env.example .env
+```
+
+Fill in the required environment variables, including your PostgreSQL connection, Auth.js secret, OAuth credentials, Cloudinary and Resend configuration.
+
+#### 4. Set up the database
+
+Make sure PostgreSQL is running and your `DATABASE_URL` is configured in `.env`.
+
+Generate the Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+Apply the database schema:
+
+```bash
+npx prisma migrate dev
+```
+
+If you need to inspect or manage the database manually, you can open Prisma Studio:
+
+```bash
+npx prisma studio
+```
+
+#### 5. Start the development server
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```text
+http://localhost:3000
+```
+
+#### Useful Prisma commands
+
+```bash
+# Generate Prisma Client
+npx prisma generate
+
+# Create and apply a new migration
+npx prisma migrate dev
+
+# Apply migrations in production
+npx prisma migrate deploy
+
+# Open Prisma Studio
+npx prisma studio
+
+# Reset the database
+npx prisma migrate reset
+```
+
+> **Note:** `prisma migrate reset` deletes all data from the database. Use it only in development.
+
+---
+
+### 🏗️ Architecture & Codebase Structure
 
 The project follows the **Feature-Sliced Design** methodology.
 
