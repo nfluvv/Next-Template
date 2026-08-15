@@ -6,22 +6,22 @@ A ready-to-use foundation for applications that need more than a simple login fo
 
 ---
 
-### 🚀 Features
+### ✨ Features
 
-- **Credentials Authentication:** Email + password registration and login.
-- **OAuth Authentication:** Google and GitHub providers.
-- **Email Verification:** Secure, single-use verification tokens with automatic login.
-- **Password Recovery:** Time-limited password reset flow.
-- **Two-Factor Authentication:** RFC 6238 TOTP with QR setup and backup codes.
-- **Profile Management:** Username, display name, avatar, email and password management.
-- **Cloudinary Uploads:** Signed client-side avatar uploads.
-- **Admin Panel:** User management, pagination, search, roles and audit logging.
-- **Rate Limiting:** PostgreSQL-backed rate limiting without external infrastructure.
-- **Account Linking:** Secure OAuth account linking protected against account-takeover scenarios.
-- **Session Validation:** User status is re-validated against the database.
-- **Dark / Light / System Theme:** Persistent theme support.
-- **Responsive UI:** Modern responsive interface built with shadcn/ui and Tailwind CSS.
-- **FSD Architecture:** Layer boundaries enforced with ESLint.
+- **Credentials Authentication** — email + password registration and login.
+- **OAuth Authentication** — Google and GitHub providers.
+- **Email Verification** — secure, single-use verification tokens with automatic login.
+- **Password Recovery** — time-limited password reset flow.
+- **Two-Factor Authentication** — RFC 6238 TOTP with QR setup and backup codes.
+- **Profile Management** — username, display name, avatar, email and password management.
+- **Cloudinary Uploads** — signed client-side avatar uploads.
+- **Admin Panel** — user management, pagination, search, roles and audit logging.
+- **Rate Limiting** — PostgreSQL-backed rate limiting without external infrastructure.
+- **Account Linking** — secure OAuth account linking protected against account-takeover scenarios.
+- **Session Validation** — user status is re-validated against the database.
+- **Dark / Light / System Theme** — persistent theme support.
+- **Responsive UI** — modern responsive interface built with shadcn/ui and Tailwind CSS.
+- **FSD Architecture** — layer boundaries enforced with ESLint.
 
 ---
 
