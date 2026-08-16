@@ -1,12 +1,11 @@
-'use client';
+"use client"
 
-import type { PropsWithChildren } from 'react';
-import { SessionProvider } from 'next-auth/react';
-import { Toaster } from 'react-hot-toast';
+import type { PropsWithChildren } from "react"
+import { SessionProvider } from "next-auth/react"
+import { Toaster } from "react-hot-toast"
 
-import { QueryProvider } from './query-provider';
-import { ThemeProvider } from './theme-provider';
-
+import { QueryProvider } from "./query-provider"
+import { ThemeProvider } from "./theme-provider"
 
 export function AppProviders({ children }: PropsWithChildren) {
   return (
@@ -17,12 +16,12 @@ export function AppProviders({ children }: PropsWithChildren) {
           <Toaster
             position="top-center"
             toastOptions={{
-              className: 'toast',
+              className: "toast",
               duration: 3000,
             }}
           />
         </QueryProvider>
       </SessionProvider>
     </ThemeProvider>
-  );
+  )
 }

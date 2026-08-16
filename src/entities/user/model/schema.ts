@@ -24,12 +24,12 @@ export const usernameSchema = z.object({
 export type UsernameValues = z.infer<typeof usernameSchema>
 
 export const emailSchema = z.object({
-  email: z.string().min(1, 'Введите email').email('Некорректный email'),
-});
+  email: z.string().min(1, "Введите email").email("Некорректный email"),
+})
 
-export type EmailValues = z.infer<typeof emailSchema>;
+export type EmailValues = z.infer<typeof emailSchema>
 
-const newPasswordField = z.string().min(8, 'Минимум 8 символов');
+const newPasswordField = z.string().min(8, "Минимум 8 символов")
 
 export const resetPasswordSchema = z
   .object({
@@ -37,17 +37,20 @@ export const resetPasswordSchema = z
     confirmPassword: newPasswordField,
   })
   .refine((data) => data.newPassword === data.confirmPassword, {
-    message: 'Пароли не совпадают',
-    path: ['confirmPassword'],
-  });
+    message: "Пароли не совпадают",
+    path: ["confirmPassword"],
+  })
 
-export type ResetPasswordValues = z.infer<typeof resetPasswordSchema>;
+export type ResetPasswordValues = z.infer<typeof resetPasswordSchema>
 
 export const totpCodeSchema = z.object({
-  code: z.string().length(6, 'Код должен состоять из 6 цифр').regex(/^\d+$/, 'Только цифры'),
-});
+  code: z
+    .string()
+    .length(6, "Код должен состоять из 6 цифр")
+    .regex(/^\d+$/, "Только цифры"),
+})
 
-export type TotpCodeValues = z.infer<typeof totpCodeSchema>;
+export type TotpCodeValues = z.infer<typeof totpCodeSchema>
 
 export const deleteAccountSchema = z
   .object({
@@ -55,17 +58,17 @@ export const deleteAccountSchema = z
     password: z.string().optional(),
     totpCode: z.string().optional(),
   })
-  .refine((data) => data.confirmation === 'DELETE', {
-    message: 'Введите DELETE для подтверждения',
-    path: ['confirmation'],
-  });
+  .refine((data) => data.confirmation === "DELETE", {
+    message: "Введите DELETE для подтверждения",
+    path: ["confirmation"],
+  })
 
-export type DeleteAccountValues = z.infer<typeof deleteAccountSchema>;
+export type DeleteAccountValues = z.infer<typeof deleteAccountSchema>
 
 export const changeEmailSchema = z.object({
-  newEmail: z.string().min(1, 'Введите email').email('Некорректный email'),
+  newEmail: z.string().min(1, "Введите email").email("Некорректный email"),
   password: z.string().optional(),
   totpCode: z.string().optional(),
-});
+})
 
-export type ChangeEmailValues = z.infer<typeof changeEmailSchema>;
+export type ChangeEmailValues = z.infer<typeof changeEmailSchema>

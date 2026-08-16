@@ -17,7 +17,7 @@ export async function SettingsPage() {
       <div className="mx-auto max-w-3xl">
         <div className="mb-8 sm:mb-10">
           <div className="mb-3 flex items-center gap-3">
-            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.25em] text-muted-foreground/60">
+            <span className="font-mono text-[9px] font-semibold tracking-[0.25em] text-muted-foreground/60 uppercase">
               01 / ACCOUNT
             </span>
             <span className="h-px w-8 bg-border" />
@@ -33,7 +33,7 @@ export async function SettingsPage() {
         <ProfileSettings user={user} userHasPassword={userHasPassword} />
 
         <div className="mt-5 flex items-center justify-between px-1">
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground/60">
+          <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/60 uppercase">
             ACCOUNT SETTINGS
           </span>
           <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/60">

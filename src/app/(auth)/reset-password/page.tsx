@@ -9,7 +9,9 @@ type ResetPasswordPageProps = {
   searchParams: Promise<{ token?: string }>
 }
 
-export default async function ResetPasswordPage({ searchParams }: ResetPasswordPageProps) {
+export default async function ResetPasswordPage({
+  searchParams,
+}: ResetPasswordPageProps) {
   const { token } = await searchParams
   return <ResetPasswordView token={token} />
 }

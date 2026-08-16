@@ -1,9 +1,9 @@
 type SettingsRowProps = {
-  title: string;
-  description: string;
-  children: React.ReactNode;
-  destructive?: boolean;
-};
+  title: string
+  description: string
+  children: React.ReactNode
+  destructive?: boolean
+}
 
 export function SettingsRow({
   title,
@@ -29,9 +29,7 @@ export function SettingsRow({
         </p>
       </div>
 
-      <div className="w-full sm:w-70">
-        {children}
-      </div>
+      <div className="w-full sm:w-70">{children}</div>
     </div>
-  );
+  )
 }

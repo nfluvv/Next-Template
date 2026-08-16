@@ -24,10 +24,7 @@ type UserProfileProps = {
   isOwnProfile: boolean
 }
 
-export function UserProfile({
-  profile,
-  isOwnProfile,
-}: UserProfileProps) {
+export function UserProfile({ profile, isOwnProfile }: UserProfileProps) {
   const initial = (profile.name ?? "?").charAt(0).toUpperCase()
 
   const joinedDate = new Intl.DateTimeFormat("ru-RU", {
@@ -54,28 +51,28 @@ export function UserProfile({
           </Avatar>
 
           {isOwnProfile && (
-          <Link href={siteConfig.routes.settings}> 
-            <Button variant="outline" size="sm" className="rounded-full px-5 font-medium" > Редактировать профиль </Button> 
-          </Link>
+            <Link href={siteConfig.routes.settings}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full px-5 font-medium"
+              >
+                {" "}
+                Редактировать профиль{" "}
+              </Button>
+            </Link>
           )}
         </div>
 
-        <ProfileIdentity
-          name={profile.name}
-          username={profile.username}
-        />
+        <ProfileIdentity name={profile.name} username={profile.username} />
 
         <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
           <span>
             На платформе с{" "}
-            <span className="font-medium text-foreground/80">
-              {joinedDate}
-            </span>
+            <span className="font-medium text-foreground/80">{joinedDate}</span>
           </span>
 
-          <span className="hidden text-border sm:inline">
-            •
-          </span>
+          <span className="hidden text-border sm:inline">•</span>
 
           <span className="font-mono text-[10px] tracking-wide text-muted-foreground/60">
             {siteConfig.name}
@@ -83,7 +80,7 @@ export function UserProfile({
         </div>
 
         <div className="mt-6 border-t border-border/60 pt-5">
-          <div className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground/50">
+          <div className="flex items-center gap-3 text-[10px] font-medium tracking-[0.2em] text-muted-foreground/50 uppercase">
             <span>Profile</span>
 
             <span className="h-px flex-1 bg-border/60" />

@@ -15,15 +15,10 @@ export type AdminUsersResponse = {
   page: number
 }
 
-export const adminUsersQueryKey = (
-  query: string,
-  page: number,
-) => ["admin-users", query, page] as const
+export const adminUsersQueryKey = (query: string, page: number) =>
+  ["admin-users", query, page] as const
 
-export function useAdminUsersQuery(
-  query: string,
-  page: number,
-) {
+export function useAdminUsersQuery(query: string, page: number) {
   return useQuery({
     queryKey: adminUsersQueryKey(query, page),
 
@@ -33,14 +28,10 @@ export function useAdminUsersQuery(
         page: String(page),
       })
 
-      const res = await fetch(
-        `/api/admin/users?${params}`,
-      )
+      const res = await fetch(`/api/admin/users?${params}`)
 
       if (!res.ok) {
-        throw new Error(
-          "Не удалось загрузить пользователей",
-        )
+        throw new Error("Не удалось загрузить пользователей")
       }
 
       return res.json()

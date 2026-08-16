@@ -1,5 +1,5 @@
-'use client';
+"use client"
 
-import { ErrorPage } from '@/views/error-page';
+import { ErrorPage } from "@/views/error-page"
 
-export default ErrorPage;
+export default ErrorPage

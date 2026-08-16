@@ -6,8 +6,8 @@ import { auth } from "@/shared/config/auth"
 import { prisma } from "@/shared/api/prisma"
 
 import { changePasswordSchema } from "../model/schema"
-import { checkRateLimit } from '@/shared/lib/rate-limit';
-import { getClientIp } from '@/shared/lib/get-client-ip';
+import { checkRateLimit } from "@/shared/lib/rate-limit"
+import { getClientIp } from "@/shared/lib/get-client-ip"
 
 type ChangePasswordResult =
   { success: true } | { success: false; error: string }
@@ -20,10 +20,13 @@ export const changePassword = async (
     return { success: false, error: "Не авторизован" }
   }
 
-  const ip = await getClientIp();
-  const allowed = await checkRateLimit(`login:ip:${ip}`, { limit: 5, windowMs: 60_000 });
+  const ip = await getClientIp()
+  const allowed = await checkRateLimit(`login:ip:${ip}`, {
+    limit: 5,
+    windowMs: 60_000,
+  })
   if (!allowed) {
-    return { success: false, error: 'Слишком много попыток. Попробуйте позже.' };
+    return { success: false, error: "Слишком много попыток. Попробуйте позже." }
   }
 
   const parsed = changePasswordSchema.safeParse(raw)

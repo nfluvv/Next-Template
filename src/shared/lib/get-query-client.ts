@@ -1,5 +1,5 @@
-import { QueryClient, isServer } from '@tanstack/react-query';
-import { cache } from 'react';
+import { QueryClient, isServer } from "@tanstack/react-query"
+import { cache } from "react"
 
 function makeQueryClient() {
   return new QueryClient({
@@ -8,16 +8,16 @@ function makeQueryClient() {
         staleTime: 30 * 1000,
       },
     },
-  });
+  })
 }
 
-let browserQueryClient: QueryClient | undefined;
+let browserQueryClient: QueryClient | undefined
 
 export const getQueryClient = cache(() => {
   if (isServer) {
-    return makeQueryClient();
+    return makeQueryClient()
   }
 
-  if (!browserQueryClient) browserQueryClient = makeQueryClient();
-  return browserQueryClient;
-});
+  if (!browserQueryClient) browserQueryClient = makeQueryClient()
+  return browserQueryClient
+})

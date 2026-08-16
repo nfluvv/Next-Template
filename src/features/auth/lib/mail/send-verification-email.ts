@@ -1,13 +1,13 @@
-import 'server-only';
+import "server-only"
 
-import { mailer } from '@/shared/lib/mailer';
+import { mailer } from "@/shared/lib/mailer"
 
 export const sendVerificationEmail = async (email: string, token: string) => {
-  const verifyUrl = `${process.env.NEXTAUTH_URL ?? 'http://localhost:3000'}/verify-email?token=${token}`;
+  const verifyUrl = `${process.env.NEXTAUTH_URL ?? "http://localhost:3000"}/verify-email?token=${token}`
 
   await mailer.send({
     to: email,
-    subject: 'Подтвердите email',
+    subject: "Подтвердите email",
     html: `
       <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
         <h2>Подтверждение email</h2>
@@ -20,5 +20,5 @@ export const sendVerificationEmail = async (email: string, token: string) => {
         </p>
       </div>
     `,
-  });
-};
+  })
+}

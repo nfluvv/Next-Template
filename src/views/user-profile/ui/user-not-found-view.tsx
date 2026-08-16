@@ -1,7 +1,7 @@
-import Link from 'next/link';
+import Link from "next/link"
 
-import { siteConfig } from '@/shared/config/site';
-import { Button, Container } from '@/shared/ui';
+import { siteConfig } from "@/shared/config/site"
+import { Button, Container } from "@/shared/ui"
 
 export function UserNotFoundView() {
   return (
@@ -14,5 +14,5 @@ export function UserNotFoundView() {
         <Button variant="default">На главную</Button>
       </Link>
     </Container>
-  );
+  )
 }

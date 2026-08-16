@@ -9,7 +9,9 @@ type VerifyEmailPageProps = {
   searchParams: Promise<{ token?: string }>
 }
 
-export default async function VerifyEmailPage({ searchParams }: VerifyEmailPageProps) {
+export default async function VerifyEmailPage({
+  searchParams,
+}: VerifyEmailPageProps) {
   const { token } = await searchParams
   return <VerifyEmailView token={token} />
 }

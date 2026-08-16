@@ -16,9 +16,7 @@ export function LoginTwoFactor({
   return (
     <div className="space-y-5">
       <div>
-        <p className="text-sm font-medium">
-          Подтверждение входа
-        </p>
+        <p className="text-sm font-medium">Подтверждение входа</p>
 
         <p className="mt-1 text-xs leading-5 text-muted-foreground">
           Введите код из приложения-аутентификатора или резервный код.

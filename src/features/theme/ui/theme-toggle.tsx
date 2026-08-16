@@ -1,25 +1,25 @@
-'use client';
+"use client"
 
-import { Moon, Sun, Monitor } from 'lucide-react';
+import { Moon, Sun, Monitor } from "lucide-react"
 
-import { useThemeStore, type Theme } from '@/features/theme/store/theme-store';
+import { useThemeStore, type Theme } from "@/features/theme/store/theme-store"
 import {
   Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/shared/ui';
+} from "@/shared/ui"
 
 const OPTIONS: Array<{ value: Theme; label: string; icon: typeof Sun }> = [
-  { value: 'light', label: 'Светлая', icon: Sun },
-  { value: 'dark', label: 'Тёмная', icon: Moon },
-  { value: 'system', label: 'Системная', icon: Monitor },
-];
+  { value: "light", label: "Светлая", icon: Sun },
+  { value: "dark", label: "Тёмная", icon: Moon },
+  { value: "system", label: "Системная", icon: Monitor },
+]
 
 export function ThemeToggle() {
-  const theme = useThemeStore((s) => s.theme);
-  const setTheme = useThemeStore((s) => s.setTheme);
+  const theme = useThemeStore((s) => s.theme)
+  const setTheme = useThemeStore((s) => s.setTheme)
 
   return (
     <DropdownMenu>
@@ -35,7 +35,7 @@ export function ThemeToggle() {
           <DropdownMenuItem
             key={value}
             onClick={() => setTheme(value)}
-            className={theme === value ? 'font-medium' : undefined}
+            className={theme === value ? "font-medium" : undefined}
           >
             <Icon className="mr-2 size-4" />
             {label}
@@ -43,5 +43,5 @@ export function ThemeToggle() {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

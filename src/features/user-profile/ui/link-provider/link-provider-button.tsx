@@ -1,10 +1,10 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import { Plus, X } from 'lucide-react';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-hot-toast';
+import { useState } from "react"
+import { Plus, X } from "lucide-react"
+import { signIn } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import { toast } from "react-hot-toast"
 
 import {
   AlertDialog,
@@ -15,29 +15,33 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/shared/ui';
+} from "@/shared/ui"
 
-import { unlinkProvider } from '../../api/unlink-provider';
+import { unlinkProvider } from "../../api/unlink-provider"
 
-type Provider = 'google' | 'github';
+type Provider = "google" | "github"
 
 type LinkProviderButtonProps = {
-  provider: Provider;
-  isLinked: boolean;
-  providerName: string;
-};
+  provider: Provider
+  isLinked: boolean
+  providerName: string
+}
 
-export const LinkProviderButton = ({ provider, isLinked, providerName }: LinkProviderButtonProps) => {
-  const router = useRouter();
-  const [confirmOpen, setConfirmOpen] = useState(false);
-  const [isPending, setIsPending] = useState(false);
+export const LinkProviderButton = ({
+  provider,
+  isLinked,
+  providerName,
+}: LinkProviderButtonProps) => {
+  const router = useRouter()
+  const [confirmOpen, setConfirmOpen] = useState(false)
+  const [isPending, setIsPending] = useState(false)
 
   if (!isLinked) {
     return (
       <button
         type="button"
-        onClick={() => signIn(provider, { callbackUrl: '/settings?linked=1' })}
-        className="group relative flex h-5 w-20 items-center justify-center overflow-hidden rounded-full transition-colors cursor-pointer"
+        onClick={() => signIn(provider, { callbackUrl: "/settings?linked=1" })}
+        className="group relative flex h-5 w-20 cursor-pointer items-center justify-center overflow-hidden rounded-full transition-colors"
       >
         <span className="absolute inset-0 rounded-full bg-muted transition-colors group-hover:bg-emerald-500/10" />
         <span className="relative flex items-center gap-1 text-[10px] font-medium text-muted-foreground transition-colors group-hover:text-emerald-500">
@@ -45,30 +49,30 @@ export const LinkProviderButton = ({ provider, isLinked, providerName }: LinkPro
           Привязать
         </span>
       </button>
-    );
+    )
   }
 
   const handleUnlink = async () => {
-    setIsPending(true);
-    const result = await unlinkProvider(provider);
-    setIsPending(false);
-    setConfirmOpen(false);
+    setIsPending(true)
+    const result = await unlinkProvider(provider)
+    setIsPending(false)
+    setConfirmOpen(false)
 
     if (!result.success) {
-      toast.error(result.error);
-      return;
+      toast.error(result.error)
+      return
     }
 
-    toast.success(`${providerName} отвязан`);
-    router.refresh();
-  };
+    toast.success(`${providerName} отвязан`)
+    router.refresh()
+  }
 
   return (
     <>
       <button
         type="button"
         onClick={() => setConfirmOpen(true)}
-        className="group relative flex h-5 w-20 items-center justify-center overflow-hidden rounded-full transition-colors cursor-pointer"
+        className="group relative flex h-5 w-20 cursor-pointer items-center justify-center overflow-hidden rounded-full transition-colors"
       >
         <span className="absolute inset-0 rounded-full bg-emerald-500/10 transition-colors group-hover:bg-destructive/10" />
         <span className="relative text-[10px] font-medium text-emerald-500 transition-opacity duration-150 group-hover:opacity-0">
@@ -85,18 +89,18 @@ export const LinkProviderButton = ({ provider, isLinked, providerName }: LinkPro
           <AlertDialogHeader>
             <AlertDialogTitle>Отвязать {providerName}?</AlertDialogTitle>
             <AlertDialogDescription>
-              Вы больше не сможете входить через {providerName}. Убедитесь, что у вас остаётся
-              другой способ входа.
+              Вы больше не сможете входить через {providerName}. Убедитесь, что
+              у вас остаётся другой способ входа.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel disabled={isPending}>Отмена</AlertDialogCancel>
             <AlertDialogAction onClick={handleUnlink} disabled={isPending}>
-              {isPending ? 'Отвязываем...' : 'Отвязать'}
+              {isPending ? "Отвязываем..." : "Отвязать"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
     </>
-  );
-};
+  )
+}

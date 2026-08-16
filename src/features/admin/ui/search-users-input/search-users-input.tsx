@@ -1,22 +1,25 @@
-'use client';
+"use client"
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react"
 
-import { Input } from '@/shared/ui';
+import { Input } from "@/shared/ui"
 
 type SearchUsersInputProps = {
-  value: string;
-  onChange: (value: string) => void;
-};
+  value: string
+  onChange: (value: string) => void
+}
 
-export const SearchUsersInput = ({ value, onChange }: SearchUsersInputProps) => {
-  const [localValue, setLocalValue] = useState(value);
+export const SearchUsersInput = ({
+  value,
+  onChange,
+}: SearchUsersInputProps) => {
+  const [localValue, setLocalValue] = useState(value)
 
   useEffect(() => {
-    const timeout = setTimeout(() => onChange(localValue), 350);
-    return () => clearTimeout(timeout);
+    const timeout = setTimeout(() => onChange(localValue), 350)
+    return () => clearTimeout(timeout)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localValue]);
+  }, [localValue])
 
   return (
     <Input
@@ -24,5 +27,5 @@ export const SearchUsersInput = ({ value, onChange }: SearchUsersInputProps) => 
       value={localValue}
       onChange={(e) => setLocalValue(e.target.value)}
     />
-  );
-};
+  )
+}

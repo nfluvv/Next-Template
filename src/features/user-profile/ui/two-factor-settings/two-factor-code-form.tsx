@@ -13,20 +13,14 @@ import {
   FormMessage,
   Input,
 } from "@/shared/ui"
-import {
-  totpCodeSchema,
-  type TotpCodeValues,
-} from "@/entities/user"
+import { totpCodeSchema, type TotpCodeValues } from "@/entities/user"
 
 type TwoFactorCodeFormProps = {
   mode: "confirm" | "disable"
   onSubmit: (code: string) => Promise<void>
 }
 
-export function TwoFactorCodeForm({
-  mode,
-  onSubmit,
-}: TwoFactorCodeFormProps) {
+export function TwoFactorCodeForm({ mode, onSubmit }: TwoFactorCodeFormProps) {
   const form = useForm<TotpCodeValues>({
     resolver: zodResolver(totpCodeSchema),
     defaultValues: {
@@ -43,14 +37,11 @@ export function TwoFactorCodeForm({
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(handleSubmit)}
-        className="space-y-4"
-      >
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
         {isDisable && (
           <p className="text-sm leading-6 text-muted-foreground">
-            Двухфакторная аутентификация включена. Чтобы отключить
-            её, подтвердите действие кодом из приложения.
+            Двухфакторная аутентификация включена. Чтобы отключить её,
+            подтвердите действие кодом из приложения.
           </p>
         )}
 
@@ -60,9 +51,7 @@ export function TwoFactorCodeForm({
             name="code"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>
-                  Код из приложения
-                </FormLabel>
+                <FormLabel>Код из приложения</FormLabel>
 
                 <FormControl>
                   <Input

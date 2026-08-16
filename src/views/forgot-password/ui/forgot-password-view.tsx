@@ -1,5 +1,5 @@
-import { ForgotPasswordForm } from '@/features/auth';
-import { Container } from '@/shared/ui';
+import { ForgotPasswordForm } from "@/features/auth"
+import { Container } from "@/shared/ui"
 
 export function ForgotPasswordView() {
   return (
@@ -8,5 +8,5 @@ export function ForgotPasswordView() {
         <ForgotPasswordForm />
       </div>
     </Container>
-  );
+  )
 }

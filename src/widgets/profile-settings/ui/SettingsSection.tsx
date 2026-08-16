@@ -1,9 +1,9 @@
 type SettingsSectionProps = {
-  title: string;
-  description?: string;
-  children: React.ReactNode;
-  destructive?: boolean;
-};
+  title: string
+  description?: string
+  children: React.ReactNode
+  destructive?: boolean
+}
 
 export function SettingsSection({
   title,
@@ -31,9 +31,7 @@ export function SettingsSection({
         </h2>
 
         {description && (
-          <p className="mt-1 text-xs text-muted-foreground">
-            {description}
-          </p>
+          <p className="mt-1 text-xs text-muted-foreground">{description}</p>
         )}
       </div>
 
@@ -41,5 +39,5 @@ export function SettingsSection({
         {children}
       </div>
     </section>
-  );
+  )
 }

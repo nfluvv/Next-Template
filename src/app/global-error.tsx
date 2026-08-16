@@ -1,5 +1,5 @@
-'use client';
+"use client"
 
-import { GlobalErrorPage } from "@/views/global-error-page";
+import { GlobalErrorPage } from "@/views/global-error-page"
 
 export default GlobalErrorPage

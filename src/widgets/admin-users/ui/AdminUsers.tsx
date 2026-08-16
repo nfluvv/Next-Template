@@ -29,10 +29,7 @@ export function AdminUsers({
   const [query, setQuery] = useState(initialQuery)
   const [page, setPage] = useState(initialPage)
 
-  const { data, isPending, isError } = useAdminUsersQuery(
-    query,
-    page,
-  )
+  const { data, isPending, isError } = useAdminUsersQuery(query, page)
 
   const handleSearch = (value: string) => {
     setQuery(value)

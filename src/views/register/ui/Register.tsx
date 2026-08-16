@@ -1,5 +1,5 @@
-import { RegisterForm } from '@/features/auth';
-import { Container } from '@/shared/ui';
+import { RegisterForm } from "@/features/auth"
+import { Container } from "@/shared/ui"
 
 export function RegisterPage() {
   return (
@@ -8,5 +8,5 @@ export function RegisterPage() {
         <RegisterForm />
       </div>
     </Container>
-  );
+  )
 }

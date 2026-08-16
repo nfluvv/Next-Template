@@ -20,9 +20,7 @@ type TwoFactorSettingsProps = {
   isEnabled: boolean
 }
 
-export function TwoFactorSettings({
-  isEnabled,
-}: TwoFactorSettingsProps) {
+export function TwoFactorSettings({ isEnabled }: TwoFactorSettingsProps) {
   const router = useRouter()
 
   const [step, setStep] = useState<Step>("idle")
@@ -76,12 +74,7 @@ export function TwoFactorSettings({
   }
 
   if (step === "backup-codes") {
-    return (
-      <TwoFactorBackupCodes
-        codes={backupCodes}
-        onDone={handleDone}
-      />
-    )
+    return <TwoFactorBackupCodes codes={backupCodes} onDone={handleDone} />
   }
 
   if (step === "scanning" && qrCode && secret) {
@@ -95,25 +88,20 @@ export function TwoFactorSettings({
   }
 
   if (isEnabled) {
-    return (
-      <TwoFactorCodeForm
-        mode="disable"
-        onSubmit={handleDisable}
-      />
-    )
+    return <TwoFactorCodeForm mode="disable" onSubmit={handleDisable} />
   }
 
   return (
     <div className="space-y-4">
       <p className="text-sm leading-6 text-muted-foreground">
-        Двухфакторная аутентификация не включена. Добавьте
-        дополнительный слой защиты аккаунта.
+        Двухфакторная аутентификация не включена. Добавьте дополнительный слой
+        защиты аккаунта.
       </p>
 
       <button
         type="button"
         onClick={handleStartSetup}
-        className="... cursor-pointer"
+        className="cursor-pointer ..."
       >
         Включить 2FA
       </button>

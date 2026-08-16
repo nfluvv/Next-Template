@@ -1,1 +1,1 @@
-export { GlobalErrorPage } from './ui/global-error-page'
+export { GlobalErrorPage } from "./ui/global-error-page"

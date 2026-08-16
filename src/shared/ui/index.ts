@@ -1,4 +1,4 @@
-export { PasswordStrengthIndicator } from './custom/password-strength'
+export { PasswordStrengthIndicator } from "./custom/password-strength"
 export { Container } from "./custom/сontainer"
 export * from "./custom/icons"
 export * from "./shadcn/button"

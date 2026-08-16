@@ -34,14 +34,7 @@ export function UserMenu({ user }: UserMenuProps) {
       <DropdownMenuTrigger asChild>
         <button
           type="button"
-          className="
-            group flex items-center gap-2 rounded-lg p-1.5
-            transition-colors
-            hover:bg-muted
-            focus-visible:outline-none
-            focus-visible:ring-2
-            focus-visible:ring-ring/40
-          "
+          className="group flex items-center gap-2 rounded-lg p-1.5 transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
         >
           <Avatar className="size-7 rounded-md">
             <AvatarImage
@@ -55,7 +48,7 @@ export function UserMenu({ user }: UserMenuProps) {
           </Avatar>
 
           <div className="hidden min-w-0 text-left sm:block">
-            <p className="max-w-28 truncate text-xs font-semibold leading-none">
+            <p className="max-w-28 truncate text-xs leading-none font-semibold">
               {user.name ?? "Без имени"}
             </p>
 
@@ -115,16 +108,12 @@ export function UserMenu({ user }: UserMenuProps) {
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          <Link href={siteConfig.routes.settings}>
-            Настройки
-          </Link>
+          <Link href={siteConfig.routes.settings}>Настройки</Link>
         </DropdownMenuItem>
 
         {user.role === "ADMIN" && (
           <DropdownMenuItem asChild>
-            <Link href={siteConfig.routes.admin}>
-              Админка
-            </Link>
+            <Link href={siteConfig.routes.admin}>Админка</Link>
           </DropdownMenuItem>
         )}
 

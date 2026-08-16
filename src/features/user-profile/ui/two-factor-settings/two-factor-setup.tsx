@@ -7,7 +7,7 @@ import { TwoFactorCodeForm } from "./two-factor-code-form"
 type TwoFactorSetupProps = {
   qrCode: string
   secret: string
-  onConfirm: (code: string) => Promise<void>;
+  onConfirm: (code: string) => Promise<void>
 }
 
 export function TwoFactorSetup({
@@ -18,13 +18,11 @@ export function TwoFactorSetup({
   return (
     <div className="space-y-5">
       <div>
-        <h3 className="text-sm font-semibold">
-          Настройка 2FA
-        </h3>
+        <h3 className="text-sm font-semibold">Настройка 2FA</h3>
 
         <p className="mt-1.5 text-xs leading-5 text-muted-foreground">
-          Отсканируйте QR-код в приложении-аутентификаторе.
-          После этого введите сгенерированный код.
+          Отсканируйте QR-код в приложении-аутентификаторе. После этого введите
+          сгенерированный код.
         </p>
       </div>
 
@@ -39,19 +37,14 @@ export function TwoFactorSetup({
       </div>
 
       <div className="rounded-lg border border-border/60 bg-muted/30 p-3">
-        <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground/60">
+        <p className="mb-1 font-mono text-[9px] tracking-[0.18em] text-muted-foreground/60 uppercase">
           Manual setup key
         </p>
 
-        <code className="break-all text-xs">
-          {secret}
-        </code>
+        <code className="text-xs break-all">{secret}</code>
       </div>
 
-      <TwoFactorCodeForm
-        mode="confirm"
-        onSubmit={onConfirm}
-      />
+      <TwoFactorCodeForm mode="confirm" onSubmit={onConfirm} />
     </div>
   )
 }

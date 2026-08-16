@@ -1,6 +1,14 @@
 import type { NextAuthConfig } from "next-auth"
 
-const PUBLIC_ROUTES = ['/login', '/register', '/forbidden', '/verify-email', '/forgot-password', '/reset-password', '/confirm-email-change']
+const PUBLIC_ROUTES = [
+  "/login",
+  "/register",
+  "/forbidden",
+  "/verify-email",
+  "/forgot-password",
+  "/reset-password",
+  "/confirm-email-change",
+]
 
 export const authConfig = {
   pages: {
@@ -14,9 +22,10 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user
       const { pathname, origin } = request.nextUrl
 
-      const isPublicRoute = PUBLIC_ROUTES.some((route) =>
-        pathname.startsWith(route)
-      )
+      const isHomePage = pathname === "/"
+      const isPublicRoute =
+        isHomePage || PUBLIC_ROUTES.some((route) => pathname.startsWith(route))
+
       const isAdminRoute = pathname.startsWith("/admin")
 
       if (isAdminRoute) {

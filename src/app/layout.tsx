@@ -1,22 +1,22 @@
-import type { Metadata } from 'next';
-import { Manrope, Inter } from 'next/font/google';
-import Script from 'next/script';
+import type { Metadata } from "next"
+import { Manrope, Inter } from "next/font/google"
+import Script from "next/script"
 
-import { siteConfig } from '@/shared/config/site';
-import { Header } from '@/widgets/header';
-import { AppProviders } from '@/app/providers';
+import { siteConfig } from "@/shared/config/site"
+import { Header } from "@/widgets/header"
+import { AppProviders } from "@/app/providers"
 
-import './globals.css';
+import "./globals.css"
 
 const fontSans = Inter({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-sans',
-});
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-sans",
+})
 
 const fontDisplay = Manrope({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-display',
-});
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-display",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     template: `${siteConfig.name} | %s`,
   },
   description: siteConfig.description,
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html
@@ -65,5 +65,5 @@ export default function RootLayout({
         </AppProviders>
       </body>
     </html>
-  );
+  )
 }

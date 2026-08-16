@@ -12,18 +12,15 @@ export function TwoFactorBackupCodes({
   return (
     <div className="space-y-5">
       <div>
-        <div className="mb-2 font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-muted-foreground/60">
+        <div className="mb-2 font-mono text-[9px] font-semibold tracking-[0.2em] text-muted-foreground/60 uppercase">
           02 / BACKUP
         </div>
 
-        <h3 className="text-sm font-semibold">
-          Сохраните резервные коды
-        </h3>
+        <h3 className="text-sm font-semibold">Сохраните резервные коды</h3>
 
         <p className="mt-1.5 text-xs leading-5 text-muted-foreground">
-          Каждый код можно использовать только один раз.
-          Сохраните их в надёжном месте — повторно они
-          показываться не будут.
+          Каждый код можно использовать только один раз. Сохраните их в надёжном
+          месте — повторно они показываться не будут.
         </p>
       </div>
 
@@ -38,11 +35,7 @@ export function TwoFactorBackupCodes({
         ))}
       </div>
 
-      <Button
-        type="button"
-        onClick={onDone}
-        className="w-full sm:w-auto"
-      >
+      <Button type="button" onClick={onDone} className="w-full sm:w-auto">
         Готово
       </Button>
     </div>

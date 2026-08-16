@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import {
   AvatarUploader,
@@ -7,12 +7,12 @@ import {
   UpdateNameForm,
   UpdateUsernameForm,
   DeleteAccountDialog,
-  ChangeEmailForm
+  ChangeEmailForm,
 } from "@/features/user-profile"
 
-import { SettingsRow } from "./SettingsRow";
-import { SettingsSection } from "./SettingsSection";
-import { ConnectedAccounts } from "./ConnectedAccounts";
+import { SettingsRow } from "./SettingsRow"
+import { SettingsSection } from "./SettingsSection"
+import { ConnectedAccounts } from "./ConnectedAccounts"
 
 type ProfileSettingsProps = {
   user: {
@@ -32,8 +32,8 @@ export function ProfileSettings({
   userHasPassword,
 }: ProfileSettingsProps) {
   const connectedProviders = new Set(
-    user.accounts.map((account) => account.provider),
-  );
+    user.accounts.map((account) => account.provider)
+  )
 
   return (
     <div className="space-y-6">
@@ -128,5 +128,5 @@ export function ProfileSettings({
         </SettingsRow>
       </SettingsSection>
     </div>
-  );
+  )
 }

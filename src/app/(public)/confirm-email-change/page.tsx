@@ -9,7 +9,9 @@ type ConfirmEmailChangePageProps = {
   searchParams: Promise<{ token?: string }>
 }
 
-export default async function ConfirmEmailChangePage({ searchParams }: ConfirmEmailChangePageProps) {
+export default async function ConfirmEmailChangePage({
+  searchParams,
+}: ConfirmEmailChangePageProps) {
   const { token } = await searchParams
   return <ConfirmEmailChangeView token={token} />
 }

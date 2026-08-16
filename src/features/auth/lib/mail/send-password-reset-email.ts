@@ -1,13 +1,13 @@
-import 'server-only';
+import "server-only"
 
-import { mailer } from '@/shared/lib/mailer';
+import { mailer } from "@/shared/lib/mailer"
 
 export const sendPasswordResetEmail = async (email: string, token: string) => {
-  const resetUrl = `${process.env.NEXTAUTH_URL ?? 'http://localhost:3000'}/reset-password?token=${token}`;
+  const resetUrl = `${process.env.NEXTAUTH_URL ?? "http://localhost:3000"}/reset-password?token=${token}`
 
   await mailer.send({
     to: email,
-    subject: 'Сброс пароля',
+    subject: "Сброс пароля",
     html: `
       <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
         <h2>Сброс пароля</h2>
@@ -20,5 +20,5 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
         </p>
       </div>
     `,
-  });
-};
+  })
+}

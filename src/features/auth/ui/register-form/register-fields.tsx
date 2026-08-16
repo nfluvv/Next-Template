@@ -36,11 +36,7 @@ export function RegisterFields({ control }: RegisterFieldsProps) {
           <FormItem>
             <FormLabel>Имя</FormLabel>
             <FormControl>
-              <Input
-                placeholder="Иван"
-                autoComplete="name"
-                {...field}
-              />
+              <Input placeholder="Иван" autoComplete="name" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -73,16 +69,12 @@ export function RegisterFields({ control }: RegisterFieldsProps) {
           <FormItem>
             <FormLabel>Пароль</FormLabel>
             <FormControl>
-              <Input
-                type="password"
-                autoComplete="new-password"
-                {...field}
-              />
+              <Input type="password" autoComplete="new-password" {...field} />
             </FormControl>
-            
+
             {/* 💡 КЛАДЕМ ИНДИКАТОР СТРОГО СЮДА (внутри FormItem, под инпут) */}
             <PasswordStrengthIndicator password={passwordValue} />
-            
+
             <FormMessage />
           </FormItem>
         )}
@@ -95,11 +87,7 @@ export function RegisterFields({ control }: RegisterFieldsProps) {
           <FormItem>
             <FormLabel>Повторите пароль</FormLabel>
             <FormControl>
-              <Input
-                type="password"
-                autoComplete="new-password"
-                {...field}
-              />
+              <Input type="password" autoComplete="new-password" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

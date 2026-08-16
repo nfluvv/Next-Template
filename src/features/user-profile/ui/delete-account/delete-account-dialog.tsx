@@ -1,10 +1,10 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { signOut } from 'next-auth/react';
-import { toast } from 'react-hot-toast';
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { signOut } from "next-auth/react"
+import { toast } from "react-hot-toast"
 
 import {
   AlertDialog,
@@ -23,36 +23,39 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from '@/shared/ui';
-import { deleteAccountSchema, type DeleteAccountValues } from '@/entities/user';
+} from "@/shared/ui"
+import { deleteAccountSchema, type DeleteAccountValues } from "@/entities/user"
 
-import { deleteAccount } from '../../api/delete-account';
+import { deleteAccount } from "../../api/delete-account"
 
 type DeleteAccountDialogProps = {
-  hasPassword: boolean;
-  twoFactorEnabled: boolean;
-};
+  hasPassword: boolean
+  twoFactorEnabled: boolean
+}
 
-export const DeleteAccountDialog = ({ hasPassword, twoFactorEnabled }: DeleteAccountDialogProps) => {
-  const [open, setOpen] = useState(false);
+export const DeleteAccountDialog = ({
+  hasPassword,
+  twoFactorEnabled,
+}: DeleteAccountDialogProps) => {
+  const [open, setOpen] = useState(false)
 
   const form = useForm<DeleteAccountValues>({
     resolver: zodResolver(deleteAccountSchema),
-    defaultValues: { confirmation: '', password: '', totpCode: '' },
-  });
+    defaultValues: { confirmation: "", password: "", totpCode: "" },
+  })
 
   const onSubmit = async (values: DeleteAccountValues) => {
-    const result = await deleteAccount(values);
+    const result = await deleteAccount(values)
 
     if (!result.success) {
-      toast.error(result.error);
-      return;
+      toast.error(result.error)
+      return
     }
 
-    toast.success('Аккаунт удалён');
-    setOpen(false);
-    await signOut({ callbackUrl: '/' });
-  };
+    toast.success("Аккаунт удалён")
+    setOpen(false)
+    await signOut({ callbackUrl: "/" })
+  }
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
@@ -63,8 +66,8 @@ export const DeleteAccountDialog = ({ hasPassword, twoFactorEnabled }: DeleteAcc
         <AlertDialogHeader>
           <AlertDialogTitle>Удалить аккаунт навсегда?</AlertDialogTitle>
           <AlertDialogDescription>
-            Это действие необратимо. Все данные аккаунта будут удалены без возможности
-            восстановления.
+            Это действие необратимо. Все данные аккаунта будут удалены без
+            возможности восстановления.
           </AlertDialogDescription>
         </AlertDialogHeader>
 
@@ -76,7 +79,9 @@ export const DeleteAccountDialog = ({ hasPassword, twoFactorEnabled }: DeleteAcc
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    Введите <code className="rounded bg-muted px-1">DELETE</code> для подтверждения
+                    Введите{" "}
+                    <code className="rounded bg-muted px-1">DELETE</code> для
+                    подтверждения
                   </FormLabel>
                   <FormControl>
                     <Input {...field} />
@@ -120,13 +125,19 @@ export const DeleteAccountDialog = ({ hasPassword, twoFactorEnabled }: DeleteAcc
 
             <AlertDialogFooter>
               <AlertDialogCancel type="button">Отмена</AlertDialogCancel>
-              <Button type="submit" variant="destructive" disabled={form.formState.isSubmitting}>
-                {form.formState.isSubmitting ? 'Удаляем...' : 'Удалить навсегда'}
+              <Button
+                type="submit"
+                variant="destructive"
+                disabled={form.formState.isSubmitting}
+              >
+                {form.formState.isSubmitting
+                  ? "Удаляем..."
+                  : "Удалить навсегда"}
               </Button>
             </AlertDialogFooter>
           </form>
         </Form>
       </AlertDialogContent>
     </AlertDialog>
-  );
-};
+  )
+}

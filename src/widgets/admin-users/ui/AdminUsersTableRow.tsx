@@ -23,26 +23,16 @@ export function AdminUsersTableRow({
   currentUserId,
   onRoleChangeSuccess,
 }: AdminUsersTableRowProps) {
-  const initial = (
-    user.name ??
-    user.email
-  )
-    .charAt(0)
-    .toUpperCase()
+  const initial = (user.name ?? user.email).charAt(0).toUpperCase()
 
   return (
     <TableRow>
       <TableCell>
         <div className="flex items-center gap-3">
           <Avatar className="size-8">
-            <AvatarImage
-              src={user.image ?? undefined}
-              alt={user.name ?? ""}
-            />
+            <AvatarImage src={user.image ?? undefined} alt={user.name ?? ""} />
 
-            <AvatarFallback>
-              {initial}
-            </AvatarFallback>
+            <AvatarFallback>{initial}</AvatarFallback>
           </Avatar>
 
           {user.username ? (
@@ -53,16 +43,12 @@ export function AdminUsersTableRow({
               {user.name ?? "—"}
             </Link>
           ) : (
-            <span className="font-medium">
-              {user.name ?? "—"}
-            </span>
+            <span className="font-medium">{user.name ?? "—"}</span>
           )}
         </div>
       </TableCell>
 
-      <TableCell className="text-muted-foreground">
-        {user.email}
-      </TableCell>
+      <TableCell className="text-muted-foreground">{user.email}</TableCell>
 
       <TableCell>
         <RoleSelect

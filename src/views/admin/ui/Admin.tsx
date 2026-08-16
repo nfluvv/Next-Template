@@ -12,9 +12,7 @@ type AdminPageProps = {
   }>
 }
 
-export async function AdminPage({
-  searchParams,
-}: AdminPageProps) {
+export async function AdminPage({ searchParams }: AdminPageProps) {
   const { q = "", page } = await searchParams
 
   const pageNum = page ? Number(page) : 1
@@ -33,9 +31,7 @@ export async function AdminPage({
 
   return (
     <div className="mx-auto max-w-4xl space-y-6 py-10">
-      <h1 className="text-2xl font-semibold">
-        Пользователи
-      </h1>
+      <h1 className="text-2xl font-semibold">Пользователи</h1>
 
       <HydrationBoundary state={dehydrate(queryClient)}>
         <AdminUsers

@@ -27,11 +27,7 @@ export function LoginFields({ control }: LoginFieldsProps) {
           <FormItem>
             <FormLabel>Email</FormLabel>
             <FormControl>
-              <Input
-                type="email"
-                placeholder="you@example.com"
-                {...field}
-              />
+              <Input type="email" placeholder="you@example.com" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

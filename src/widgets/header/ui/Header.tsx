@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { getCurrentUser } from "@/entities/user/api/queries"
-import { ThemeToggle } from '@/features/theme';
+import { ThemeToggle } from "@/features/theme"
 import { siteConfig } from "@/shared/config/site"
 import { buttonVariants, Container } from "@/shared/ui"
 import { UserMenu } from "./UserMenu"
@@ -23,7 +23,7 @@ export async function Header() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <UserMenu user={user} />
-         </div>
+          </div>
         ) : (
           <div className="flex items-center gap-2">
             <ThemeToggle />

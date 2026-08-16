@@ -32,4 +32,3 @@ const Toaster = ({ toastOptions, ...props }: ToasterProps) => {
 }
 
 export { Toaster }
-

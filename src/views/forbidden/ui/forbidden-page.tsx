@@ -5,12 +5,7 @@ type ActionButton = {
   label: string
   href: string
   variant?:
-    | "default"
-    | "destructive"
-    | "outline"
-    | "secondary"
-    | "ghost"
-    | "link"
+    "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
 }
 
 type MessageContent = {

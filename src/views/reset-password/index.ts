@@ -1,1 +1,1 @@
-export { ResetPasswordView } from './ui/reset-password-view';
+export { ResetPasswordView } from "./ui/reset-password-view"

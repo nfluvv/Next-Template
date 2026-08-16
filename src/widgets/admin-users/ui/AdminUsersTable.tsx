@@ -41,9 +41,7 @@ export function AdminUsersTable({
               colSpan={3}
               className="h-24 text-center text-sm text-muted-foreground"
             >
-              {isPending
-                ? "Загрузка..."
-                : "Пользователи не найдены"}
+              {isPending ? "Загрузка..." : "Пользователи не найдены"}
             </TableCell>
           </TableRow>
         ) : (

@@ -13,12 +13,18 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 import { authConfig } from "@/shared/config/auth.config"
 import { generateUniqueUsername } from "@/entities/user/lib/generate-username"
 import { verifyAutoLoginToken } from "@/features/auth/lib/tokens/auto-login-token"
-import { decryptSecret, verifyBackupCode, verifyTotpCode } from "@/shared/lib/totp"
+import {
+  decryptSecret,
+  verifyBackupCode,
+  verifyTotpCode,
+} from "@/shared/lib/totp"
 import { checkRateLimit } from "@/shared/lib/rate-limit"
 import { getClientIp } from "@/shared/lib/get-client-ip"
 
 const SESSION_COOKIE_NAME =
-  process.env.NODE_ENV === "production" ? "__Secure-authjs.session-token" : "authjs.session-token"
+  process.env.NODE_ENV === "production"
+    ? "__Secure-authjs.session-token"
+    : "authjs.session-token"
 
 const getSessionUserId = async (): Promise<string | null> => {
   const cookieStore = await cookies()
@@ -26,7 +32,11 @@ const getSessionUserId = async (): Promise<string | null> => {
   if (!rawToken) return null
 
   try {
-    const payload = await decode({ token: rawToken, secret: process.env.AUTH_SECRET!, salt: SESSION_COOKIE_NAME, })
+    const payload = await decode({
+      token: rawToken,
+      secret: process.env.AUTH_SECRET!,
+      salt: SESSION_COOKIE_NAME,
+    })
     return (payload?.id as string | undefined) ?? null
   } catch {
     return null
@@ -59,7 +69,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       credentials: { email: {}, password: {}, totpCode: {} },
       authorize: async (raw) => {
         const ip = await getClientIp()
-        const allowed = await checkRateLimit(`login:ip:${ip}`, { limit: 5, windowMs: 60_000 })
+        const allowed = await checkRateLimit(`login:ip:${ip}`, {
+          limit: 5,
+          windowMs: 60_000,
+        })
         if (!allowed) return null
 
         const parsed = credentialsSchema.safeParse(raw)
@@ -79,13 +92,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           if (!totpCode) return null
 
           const validTotp =
-            user.twoFactorSecret && verifyTotpCode(decryptSecret(user.twoFactorSecret), totpCode)
+            user.twoFactorSecret &&
+            verifyTotpCode(decryptSecret(user.twoFactorSecret), totpCode)
 
           if (!validTotp) {
-            const codeIndex = await verifyBackupCode(totpCode, user.twoFactorBackupCodes)
+            const codeIndex = await verifyBackupCode(
+              totpCode,
+              user.twoFactorBackupCodes
+            )
             if (codeIndex === -1) return null
 
-            const remaining = user.twoFactorBackupCodes.filter((_, i) => i !== codeIndex)
+            const remaining = user.twoFactorBackupCodes.filter(
+              (_, i) => i !== codeIndex
+            )
             await prisma.user.update({
               where: { id: user.id },
               data: { twoFactorBackupCodes: remaining },
@@ -115,7 +134,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const user = await prisma.user.findUnique({ where: { id: userId } })
         if (!user) return null
 
-        return { id: user.id, email: user.email, name: user.name, image: user.image }
+        return {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          image: user.image,
+        }
       },
     }),
   ],
@@ -133,7 +157,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     ...authConfig.callbacks,
     async signIn({ user, account }) {
-      if (!account || account.provider === "credentials" || account.provider === "auto-login") {
+      if (
+        !account ||
+        account.provider === "credentials" ||
+        account.provider === "auto-login"
+      ) {
         return true
       }
 
@@ -165,7 +193,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       })
 
       if (!existingUser) return true
-      if (existingUser.passwordHash === null) return true 
+      if (existingUser.passwordHash === null) return true
 
       return currentUserId === existingUser.id
     },

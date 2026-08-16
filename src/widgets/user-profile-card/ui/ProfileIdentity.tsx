@@ -3,10 +3,7 @@ type ProfileIdentityProps = {
   username: string | null
 }
 
-export function ProfileIdentity({
-  name,
-  username,
-}: ProfileIdentityProps) {
+export function ProfileIdentity({ name, username }: ProfileIdentityProps) {
   return (
     <div className="mt-5">
       <div className="flex items-center gap-2">
@@ -14,10 +11,7 @@ export function ProfileIdentity({
           {name ?? "Без имени"}
         </h1>
 
-        <span
-          aria-hidden
-          className="text-sm text-muted-foreground/40"
-        >
+        <span aria-hidden className="text-sm text-muted-foreground/40">
           ✦
         </span>
       </div>

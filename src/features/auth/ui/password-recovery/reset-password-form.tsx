@@ -1,42 +1,52 @@
-'use client';
+"use client"
 
-import { useState } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-hot-toast';
+import { useState } from "react"
+import { useForm, useWatch } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useRouter } from "next/navigation"
+import { toast } from "react-hot-toast"
 
-import { Button, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Input, PasswordStrengthIndicator } from '@/shared/ui';
-import { resetPasswordSchema, type ResetPasswordValues } from '@/entities/user';
+import {
+  Button,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  Input,
+  PasswordStrengthIndicator,
+} from "@/shared/ui"
+import { resetPasswordSchema, type ResetPasswordValues } from "@/entities/user"
 
-import { resetPassword } from '../../api/reset-password';
+import { resetPassword } from "../../api/reset-password"
 
 type ResetPasswordFormProps = {
-  token: string;
-};
+  token: string
+}
 
 export const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
-  const router = useRouter();
-  const [isDone, setIsDone] = useState(false);
+  const router = useRouter()
+  const [isDone, setIsDone] = useState(false)
 
   const form = useForm<ResetPasswordValues>({
     resolver: zodResolver(resetPasswordSchema),
-    defaultValues: { newPassword: '', confirmPassword: '' },
-  });
+    defaultValues: { newPassword: "", confirmPassword: "" },
+  })
 
   const onSubmit = async (values: ResetPasswordValues) => {
-    const result = await resetPassword(token, values);
+    const result = await resetPassword(token, values)
 
     if (!result.success) {
-      toast.error(result.error);
-      return;
+      toast.error(result.error)
+      return
     }
 
-    setIsDone(true);
-    toast.success('Пароль обновлён');
-    setTimeout(() => router.push('/login'), 1500);
-  };
-  
+    setIsDone(true)
+    toast.success("Пароль обновлён")
+    setTimeout(() => router.push("/login"), 1500)
+  }
+
   const newPasswordValue = useWatch({
     control: form.control,
     name: "newPassword",
@@ -46,9 +56,11 @@ export const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
     return (
       <div className="space-y-2 text-center">
         <h1 className="text-2xl font-semibold">Пароль обновлён</h1>
-        <p className="text-sm text-muted-foreground">Переносим вас на страницу входа...</p>
+        <p className="text-sm text-muted-foreground">
+          Переносим вас на страницу входа...
+        </p>
       </div>
-    );
+    )
   }
 
   return (
@@ -85,11 +97,15 @@ export const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
             )}
           />
 
-          <Button type="submit" disabled={form.formState.isSubmitting} className="w-full">
-            {form.formState.isSubmitting ? 'Сохраняем...' : 'Сохранить пароль'}
+          <Button
+            type="submit"
+            disabled={form.formState.isSubmitting}
+            className="w-full"
+          >
+            {form.formState.isSubmitting ? "Сохраняем..." : "Сохранить пароль"}
           </Button>
         </form>
       </Form>
     </>
-  );
-};
+  )
+}

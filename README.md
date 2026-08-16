@@ -43,7 +43,6 @@ A ready-to-use foundation for applications that need more than a simple login fo
 
 ![Settings](https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings.PNG?raw=true)
 
-
 ---
 
 ### 🛠 Tech Stack
@@ -163,3 +162,4 @@ src/
 └── shared/       # UI kit, utilities and infrastructure
 
 app/              # Next.js routing layer
+```

@@ -23,7 +23,7 @@ const eslintConfig = defineConfig([
       ],
       "boundaries/ignore": ["src/**/@*/**"],
       // Отключаем детекцию устаревшего синтаксиса для ускорения линтинга
-      "boundaries/legacy-warnings": false, 
+      "boundaries/legacy-warnings": false,
     },
     rules: {
       // Ипользуем новое имя правила вместо boundaries/element-types
@@ -32,7 +32,8 @@ const eslintConfig = defineConfig([
         {
           default: "allow",
           // Обновленный синтаксис шаблона вывода ошибки
-          message: "{{from.element.types.[0]}} не может импортировать из {{to.element.types.[0]}}",
+          message:
+            "{{from.element.types.[0]}} не может импортировать из {{to.element.types.[0]}}",
           // Используем актуальный ключ policies вместо rules
           policies: [
             {
@@ -71,9 +72,7 @@ const eslintConfig = defineConfig([
             },
             {
               from: { element: { type: "views" } },
-              disallow: [
-                { to: { element: { type: "app" } } },
-              ],
+              disallow: [{ to: { element: { type: "app" } } }],
             },
           ],
         },

@@ -13,13 +13,10 @@ export function AdminUsersToolbar({
 }: AdminUsersToolbarProps) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <SearchUsersInput
-        value={query}
-        onChange={onSearch}
-      />
+      <SearchUsersInput value={query} onChange={onSearch} />
 
       {total !== undefined && (
-        <span className="whitespace-nowrap text-sm text-muted-foreground">
+        <span className="text-sm whitespace-nowrap text-muted-foreground">
           Всего: {total}
         </span>
       )}
