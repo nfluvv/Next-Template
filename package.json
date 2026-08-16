@@ -69,5 +69,8 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^5",
     "vitest": "^4.1.10"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   }
 }
