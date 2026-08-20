@@ -15,7 +15,7 @@ export const resendMailer: Mailer = {
     })
 
     if (error) {
-      throw new Error(`Не удалось отправить письмо: ${error.message}`)
+      throw new Error(`Failed to send email: ${error.message}`)
     }
   },
 }
