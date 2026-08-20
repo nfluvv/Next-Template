@@ -1,6 +1,6 @@
 "use server"
 
-import { getTranslations } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
 
 import { prisma } from "@/shared/server/db/prisma"
 import { createEmailSchema } from "@/entities/user"
@@ -34,7 +34,8 @@ export const requestPasswordReset = async (
 
   if (user && allowed) {
     const token = await createPasswordResetToken(parsed.data.email)
-    await sendPasswordResetEmail(parsed.data.email, token)
+    const locale = await getLocale()
+    await sendPasswordResetEmail(parsed.data.email, token, locale)
   }
 
   return { success: true }

@@ -1,6 +1,7 @@
 "use server"
 
 import { redirect } from "next/navigation"
+import { getLocale } from "next-intl/server"
 
 import { prisma } from "@/shared/server/db/prisma"
 import {
@@ -42,7 +43,8 @@ export const requestVerificationEmail = async (
 
   if (user && !user.emailVerified && allowed) {
     const token = await createVerificationToken(email)
-    await sendVerificationEmail(email, token)
+    const locale = await getLocale()
+    await sendVerificationEmail(email, token, locale)
   }
 
   return { success: true }

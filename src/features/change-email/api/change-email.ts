@@ -1,7 +1,7 @@
 "use server"
 
 import { compare } from "bcrypt-ts"
-import { getTranslations } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
 
 import { auth } from "@/auth"
 import { prisma } from "@/shared/server/db/prisma"
@@ -73,7 +73,9 @@ export const requestEmailChange = async (
     session.user.id,
     parsed.data.newEmail
   )
-  await sendEmailChangeConfirmation(parsed.data.newEmail, token)
+
+  const locale = await getLocale()
+  await sendEmailChangeConfirmation(parsed.data.newEmail, token, locale)
 
   return { success: true }
 }

@@ -1,7 +1,7 @@
 "use server"
 
 import { hash } from "bcrypt-ts"
-import { getTranslations } from "next-intl/server"
+import { getLocale, getTranslations } from "next-intl/server"
 
 import { prisma } from "@/shared/server/db/prisma"
 import { createCredentialsSchema, createNameSchema } from "@/entities/user"
@@ -38,6 +38,7 @@ export const registerUser = async (raw: unknown): Promise<RegisterResult> => {
   const { email, password, name } = parsed.data
 
   const username = await generateUniqueUsername(email.split("@")[0])
+  const locale = await getLocale()
 
   const existing = await prisma.user.findUnique({ where: { email } })
   if (existing?.emailVerified) {
@@ -55,13 +56,13 @@ export const registerUser = async (raw: unknown): Promise<RegisterResult> => {
     })
 
     const token = await createVerificationToken(email)
-    await sendVerificationEmail(email, token)
+    await sendVerificationEmail(email, token, locale)
 
     return { success: true }
   }
 
   const token = await createVerificationToken(email)
-  await sendVerificationEmail(email, token)
+  await sendVerificationEmail(email, token, locale)
 
   const passwordHash = await hash(password, 10)
 
