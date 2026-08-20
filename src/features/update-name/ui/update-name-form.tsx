@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo } from "react"
-import { useForm } from "react-hook-form"
+import { useForm, useWatch } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "react-hot-toast"
 import { useRouter } from "next/navigation"
@@ -37,6 +37,11 @@ export const UpdateNameForm = ({ defaultName }: UpdateNameFormProps) => {
     defaultValues: { name: defaultName },
   })
 
+  const watchedName = useWatch({
+    control: form.control,
+    name: "name",
+  })
+
   const onSubmit = async (values: NameValues) => {
     if (values.name === defaultName) return
 
@@ -52,7 +57,7 @@ export const UpdateNameForm = ({ defaultName }: UpdateNameFormProps) => {
   }
 
   const isSubmitting = form.formState.isSubmitting
-  const isUnchanged = form.watch("name") === defaultName
+  const isUnchanged = watchedName === defaultName
 
   return (
     <Form {...form}>

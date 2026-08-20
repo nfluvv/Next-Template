@@ -29,7 +29,7 @@ export function GlobalErrorPage({ error, reset }: GlobalErrorProps) {
             Critical application error
           </h1>
           <p style={{ color: "#888", maxWidth: "24rem" }}>
-            Something's seriously broken. Try refreshing the page.
+            Something&apos;s seriously broken. Try refreshing the page.
           </p>
           {error.digest && (
             <p

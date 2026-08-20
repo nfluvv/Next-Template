@@ -26,6 +26,18 @@ import { changePassword } from "../api/change-password"
 
 type ChangePasswordFormProps = { hasPassword: boolean }
 
+const isNextRedirectError = (
+  error: unknown
+): error is { digest: string } => {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "digest" in error &&
+    typeof error.digest === "string" &&
+    error.digest.startsWith("NEXT_REDIRECT")
+  )
+}
+
 export const ChangePasswordForm = ({
   hasPassword,
 }: ChangePasswordFormProps) => {
@@ -55,15 +67,9 @@ export const ChangePasswordForm = ({
         if (!result.success) {
           toast.error(result.error)
         }
-      } catch (err) {
-        if (
-          err &&
-          typeof err === "object" &&
-          "digest" in err &&
-          typeof (err as any).digest === "string" &&
-          (err as any).digest.startsWith("NEXT_REDIRECT")
-        ) {
-          throw err
+      } catch (error: unknown) {
+        if (isNextRedirectError(error)) {
+          throw error
         }
 
         toast.error(t("unexpectedError"))

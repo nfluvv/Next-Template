@@ -74,7 +74,7 @@ export function LoginForm() {
       }
 
       handleSuccess()
-    } catch (error) {
+    } catch {
       toast.error(tLogin("genericError"))
     }
   }

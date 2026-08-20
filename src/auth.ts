@@ -3,8 +3,6 @@ import Credentials from "next-auth/providers/credentials"
 import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import { compare } from "bcrypt-ts"
-import { cookies } from "next/headers"
-import { decode } from "next-auth/jwt"
 
 import { prisma } from "@/shared/server/db/prisma"
 import { createCredentialsSchema } from "@/entities/user"
@@ -20,28 +18,6 @@ import {
 import { checkRateLimit } from "@/shared/server/security/rate-limit"
 import { getClientIp } from "@/shared/server/lib/get-client-ip"
 import { getTranslations } from "next-intl/server"
-
-const SESSION_COOKIE_NAME =
-  process.env.NODE_ENV === "production"
-    ? "__Secure-authjs.session-token"
-    : "authjs.session-token"
-
-const getSessionUserId = async (): Promise<string | null> => {
-  const cookieStore = await cookies()
-  const rawToken = cookieStore.get(SESSION_COOKIE_NAME)?.value
-  if (!rawToken) return null
-
-  try {
-    const payload = await decode({
-      token: rawToken,
-      secret: process.env.AUTH_SECRET!,
-      salt: SESSION_COOKIE_NAME,
-    })
-    return (payload?.id as string | undefined) ?? null
-  } catch {
-    return null
-  }
-}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
