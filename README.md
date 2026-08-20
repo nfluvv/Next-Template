@@ -4,6 +4,8 @@ A production-minded authentication starter built with **Next.js**, **Auth.js**, 
 
 A ready-to-use foundation for applications that need more than a simple login form: OAuth, email verification, password recovery, 2FA, profile management, administration, rate limiting, and security hardening are already implemented.
 
+* 🚀 **[Live Demo](https://next-template-rho-six.vercel.app/en)**
+
 ---
 
 ### ✨ Features
