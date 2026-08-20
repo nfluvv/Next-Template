@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl"
+
 import {
   Table,
   TableBody,
@@ -5,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/shared/ui"
+} from "@/shared/client/ui"
 
 import type { AdminUsersResponse } from "../api/use-admin-users-query"
 
@@ -24,13 +26,15 @@ export function AdminUsersTable({
   currentUserId,
   onRoleChangeSuccess,
 }: AdminUsersTableProps) {
+  const t = useTranslations("adminUsers")
+
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Пользователь</TableHead>
-          <TableHead>Email</TableHead>
-          <TableHead>Роль</TableHead>
+          <TableHead>{t("columnUser")}</TableHead>
+          <TableHead>{t("columnEmail")}</TableHead>
+          <TableHead>{t("columnRole")}</TableHead>
         </TableRow>
       </TableHeader>
 
@@ -41,7 +45,7 @@ export function AdminUsersTable({
               colSpan={3}
               className="h-24 text-center text-sm text-muted-foreground"
             >
-              {isPending ? "Загрузка..." : "Пользователи не найдены"}
+              {isPending ? t("loading") : t("empty")}
             </TableCell>
           </TableRow>
         ) : (

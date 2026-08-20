@@ -1,12 +1,12 @@
-export { credentialsSchema, type Credentials } from "./model/schema"
 export {
-  nameSchema,
-  emailSchema,
-  usernameSchema,
-  resetPasswordSchema,
-  totpCodeSchema,
-  deleteAccountSchema,
-  changeEmailSchema,
+  createChangeEmailSchema,
+  createCredentialsSchema,
+  createNameSchema,
+  createTotpCodeSchema,
+  createDeleteAccountSchema,
+  createEmailSchema,
+  createResetPasswordSchema,
+  createUsernameSchema,
   type NameValues,
   type UsernameValues,
   type TotpCodeValues,
@@ -14,6 +14,7 @@ export {
   type ResetPasswordValues,
   type DeleteAccountValues,
   type ChangeEmailValues,
+  type Credentials,
 } from "./model/schema"
-export { USER_ROLES } from "./model/types"
-export type { User, UserRole } from "./model/types"
+
+export { USER_ROLES, type User, type UserRole } from "./model/types"

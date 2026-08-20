@@ -1,7 +1,8 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query"
+import { getTranslations } from "next-intl/server"
 
 import { getAllUsers, getCurrentUser } from "@/entities/user/api/queries"
-import { getQueryClient } from "@/shared/lib/get-query-client"
+import { getQueryClient } from "@/shared/server/lib/get-query-client"
 import { AdminUsers } from "@/widgets/admin-users"
 import { adminUsersQueryKey } from "@/widgets/admin-users/api/use-admin-users-query"
 
@@ -17,6 +18,7 @@ export async function AdminPage({ searchParams }: AdminPageProps) {
 
   const pageNum = page ? Number(page) : 1
 
+  const t = await getTranslations("adminUsers")
   const queryClient = getQueryClient()
   const currentUser = await getCurrentUser()
 
@@ -31,7 +33,7 @@ export async function AdminPage({ searchParams }: AdminPageProps) {
 
   return (
     <div className="mx-auto max-w-4xl space-y-6 py-10">
-      <h1 className="text-2xl font-semibold">Пользователи</h1>
+      <h1 className="text-2xl font-semibold">{t("title")}</h1>
 
       <HydrationBoundary state={dehydrate(queryClient)}>
         <AdminUsers

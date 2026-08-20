@@ -1,30 +1,34 @@
-import { confirmEmailChangeToken } from "@/features/user-profile/api/confirm-email-change"
-import { Button } from "@/shared/ui"
+import { getTranslations } from "next-intl/server"
+
+import { confirmEmailChangeToken } from "@/features/change-email/api/confirm-email-change"
+import { Button } from "@/shared/client/ui"
 
 type ConfirmEmailChangeViewProps = {
   token?: string
 }
 
-export function ConfirmEmailChangeView({ token }: ConfirmEmailChangeViewProps) {
+export async function ConfirmEmailChangeView({
+  token,
+}: ConfirmEmailChangeViewProps) {
+  const t = await getTranslations("confirmEmailChange")
+
   if (!token) {
     return (
-      <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-4 px-4 text-center">
-        <h1 className="text-2xl font-semibold">Ссылка недействительна</h1>
+      <div className="flex min-h-[calc(100vh-90px)] flex-col items-center justify-center gap-4 px-4 text-center">
+        <h1 className="text-2xl font-semibold">{t("invalidTitle")}</h1>
         <p className="max-w-sm text-muted-foreground">
-          В ссылке отсутствует токен подтверждения.
+          {t("invalidTokenDescription")}
         </p>
       </div>
     )
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-4 px-4 text-center">
-      <h1 className="text-2xl font-semibold">Подтверждение нового email</h1>
-      <p className="max-w-sm text-muted-foreground">
-        Нажмите кнопку, чтобы подтвердить смену email.
-      </p>
+    <div className="flex min-h-[calc(100vh-90px)] flex-col items-center justify-center gap-4 px-4 text-center">
+      <h1 className="text-2xl font-semibold">{t("title")}</h1>
+      <p className="max-w-sm text-muted-foreground">{t("description")}</p>
       <form action={confirmEmailChangeToken.bind(null, token)}>
-        <Button type="submit">Подтвердить</Button>
+        <Button type="submit">{t("confirm")}</Button>
       </form>
     </div>
   )

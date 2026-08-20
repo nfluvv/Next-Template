@@ -1,18 +1,15 @@
-"use client"
-
-import {
-  AvatarUploader,
-  ChangePasswordForm,
-  TwoFactorSettings,
-  UpdateNameForm,
-  UpdateUsernameForm,
-  DeleteAccountDialog,
-  ChangeEmailForm,
-} from "@/features/user-profile"
+import { AvatarUploader } from "@/features/update-avatar"
+import { ChangePasswordForm } from "@/features/change-password"
+import { TwoFactorSettings } from "@/features/manage-two-factor"
+import { UpdateNameForm } from "@/features/update-name"
+import { UpdateUsernameForm } from "@/features/update-username"
+import { DeleteAccountDialog } from "@/features/delete-account"
+import { ChangeEmailForm } from "@/features/change-email"
 
 import { SettingsRow } from "./SettingsRow"
 import { SettingsSection } from "./SettingsSection"
 import { ConnectedAccounts } from "./ConnectedAccounts"
+import { useTranslations } from "next-intl"
 
 type ProfileSettingsProps = {
   user: {
@@ -31,68 +28,48 @@ export function ProfileSettings({
   user,
   userHasPassword,
 }: ProfileSettingsProps) {
+  const t = useTranslations("userSettings")
   const connectedProviders = new Set(
     user.accounts.map((account) => account.provider)
   )
 
   return (
     <div className="space-y-6">
-      <SettingsSection
-        title="Профиль"
-        description="Основная информация вашего профиля."
-      >
-        <SettingsRow
-          title="Аватар"
-          description="Изображение, которое будет отображаться в вашем профиле."
-        >
+      <SettingsSection title={t("profile")} description={t("profileDesc")}>
+        <SettingsRow title={t("avatarTitle")} description={t("avatarDesc")}>
           <AvatarUploader
             currentImage={user.image}
             fallback={(user.name ?? user.email).charAt(0).toUpperCase()}
           />
         </SettingsRow>
 
-        <SettingsRow
-          title="Имя"
-          description="Отображаемое имя, которое видят другие пользователи."
-        >
+        <SettingsRow title={t("nameTitle")} description={t("nameDesc")}>
           <UpdateNameForm defaultName={user.name ?? ""} />
         </SettingsRow>
 
-        <SettingsRow
-          title="Юзернейм"
-          description="Уникальный идентификатор вашего профиля."
-        >
+        <SettingsRow title={t("usernameTitle")} description={t("usernameDesc")}>
           <UpdateUsernameForm defaultUsername={user.username ?? ""} />
         </SettingsRow>
       </SettingsSection>
 
-      <SettingsSection
-        title="Безопасность"
-        description="Настройки входа и защиты вашего аккаунта."
-      >
-        <SettingsRow
-          title="Двухфакторная аутентификация"
-          description="Дополнительный уровень защиты при входе в аккаунт."
-        >
-          <TwoFactorSettings isEnabled={user.twoFactorEnabled} />
-        </SettingsRow>
+      <SettingsSection title={t("security")} description={t("securityDesc")}>
+        {userHasPassword && (
+          <SettingsRow title={t("2faTitle")} description={t("2faDesc")}>
+            <TwoFactorSettings isEnabled={user.twoFactorEnabled} />
+          </SettingsRow>
+        )}
 
         <SettingsRow
-          title={userHasPassword ? "Смена пароля" : "Установка пароля"}
+          title={userHasPassword ? t("shangePassword") : t("setPassword")}
           description={
-            userHasPassword
-              ? "Обновите пароль для защиты вашего аккаунта."
-              : "Добавьте пароль, чтобы дополнительно защитить аккаунт."
+            userHasPassword ? t("changePasswordDesc") : t("setPasswordDesc")
           }
         >
           <ChangePasswordForm hasPassword={userHasPassword} />
         </SettingsRow>
 
         {user.accounts.length === 0 && (
-          <SettingsRow
-            title="Email"
-            description="Email для входа и уведомлений."
-          >
+          <SettingsRow title="Email" description={t("changeEmailDesc")}>
             <ChangeEmailForm
               currentEmail={user.email}
               hasPassword={userHasPassword}
@@ -103,8 +80,8 @@ export function ProfileSettings({
       </SettingsSection>
 
       <SettingsSection
-        title="Подключения"
-        description="Внешние сервисы, связанные с вашим аккаунтом."
+        title={t("connectionsTitle")}
+        description={t("connectionsDesc")}
       >
         <ConnectedAccounts
           google={connectedProviders.has("google")}
@@ -113,12 +90,12 @@ export function ProfileSettings({
       </SettingsSection>
 
       <SettingsSection
-        title="Опасная зона"
-        description="Необратимые действия с аккаунтом."
+        title={t("dangerZoneTitle")}
+        description={t("dangerZoneDesc")}
       >
         <SettingsRow
-          title="Удаление аккаунта"
-          description="Это действие необратимо и удалит все ваши данные без возможности восстановления."
+          title={t("deleteAccountTitle")}
+          description={t("deleteAccountDesc")}
           destructive
         >
           <DeleteAccountDialog

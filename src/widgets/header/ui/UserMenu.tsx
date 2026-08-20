@@ -1,10 +1,10 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/shared/i18n/navigation"
 import { ChevronDown } from "lucide-react"
 
-import { SignOutButton } from "@/features/auth"
-import { siteConfig } from "@/shared/config/site"
+import { SignOutButton } from "@/features/sign-out"
+import { siteConfig } from "@/shared/client/config/site"
 import {
   Avatar,
   AvatarFallback,
@@ -14,7 +14,9 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/shared/ui"
+} from "@/shared/client/ui"
+
+import { useTranslations } from "next-intl"
 
 type UserMenuProps = {
   user: {
@@ -28,6 +30,7 @@ type UserMenuProps = {
 
 export function UserMenu({ user }: UserMenuProps) {
   const initial = (user.name ?? user.email)?.charAt(0).toUpperCase()
+  const t = useTranslations("userMenu")
 
   return (
     <DropdownMenu>
@@ -103,17 +106,17 @@ export function UserMenu({ user }: UserMenuProps) {
                 : siteConfig.routes.settings
             }
           >
-            Мой профиль
+            {t("myProfile")}
           </Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          <Link href={siteConfig.routes.settings}>Настройки</Link>
+          <Link href={siteConfig.routes.settings}>{t("settings")}</Link>
         </DropdownMenuItem>
 
         {user.role === "ADMIN" && (
           <DropdownMenuItem asChild>
-            <Link href={siteConfig.routes.admin}>Админка</Link>
+            <Link href={siteConfig.routes.admin}>{t("admin")}</Link>
           </DropdownMenuItem>
         )}
 

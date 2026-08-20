@@ -1,6 +1,7 @@
 import Link from "next/link"
+import { useLocale, useTranslations } from "next-intl"
 
-import { siteConfig } from "@/shared/config/site"
+import { siteConfig } from "@/shared/client/config/site"
 import {
   Avatar,
   AvatarFallback,
@@ -8,7 +9,7 @@ import {
   Button,
   Card,
   CardContent,
-} from "@/shared/ui"
+} from "@/shared/client/ui"
 
 import { ProfileCover } from "./ProfileCover"
 import { ProfileIdentity } from "./ProfileIdentity"
@@ -25,9 +26,12 @@ type UserProfileProps = {
 }
 
 export function UserProfile({ profile, isOwnProfile }: UserProfileProps) {
+  const t = useTranslations("profile")
+  const locale = useLocale()
+
   const initial = (profile.name ?? "?").charAt(0).toUpperCase()
 
-  const joinedDate = new Intl.DateTimeFormat("ru-RU", {
+  const joinedDate = new Intl.DateTimeFormat(locale, {
     month: "long",
     year: "numeric",
   }).format(profile.createdAt)
@@ -57,8 +61,7 @@ export function UserProfile({ profile, isOwnProfile }: UserProfileProps) {
                 size="sm"
                 className="rounded-full px-5 font-medium"
               >
-                {" "}
-                Редактировать профиль{" "}
+                {t("edit")}
               </Button>
             </Link>
           )}
@@ -68,7 +71,7 @@ export function UserProfile({ profile, isOwnProfile }: UserProfileProps) {
 
         <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
           <span>
-            На платформе с{" "}
+            {t("memberSince")}{" "}
             <span className="font-medium text-foreground/80">{joinedDate}</span>
           </span>
 
@@ -82,9 +85,7 @@ export function UserProfile({ profile, isOwnProfile }: UserProfileProps) {
         <div className="mt-6 border-t border-border/60 pt-5">
           <div className="flex items-center gap-3 text-[10px] font-medium tracking-[0.2em] text-muted-foreground/50 uppercase">
             <span>Profile</span>
-
             <span className="h-px flex-1 bg-border/60" />
-
             <span>{profile.username}</span>
           </div>
         </div>

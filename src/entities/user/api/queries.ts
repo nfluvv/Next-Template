@@ -1,8 +1,8 @@
 import "server-only"
 import { cache } from "react"
 
-import { prisma } from "@/shared/api/prisma"
-import { auth } from "@/shared/config/auth"
+import { prisma } from "@/shared/server/db/prisma"
+import { auth } from "@/auth"
 
 const PAGE_SIZE = 20
 

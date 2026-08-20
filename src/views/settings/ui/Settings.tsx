@@ -1,7 +1,8 @@
-import { auth } from "@/shared/config/auth"
+import { auth } from "@/auth"
 import { getCurrentUser, hasPassword } from "@/entities/user/api/queries"
 import { ProfileSettings } from "@/widgets/profile-settings"
-import { Container } from "@/shared/ui"
+import { Container } from "@/shared/client/ui"
+import { getTranslations } from "next-intl/server"
 
 export async function SettingsPage() {
   const session = await auth()
@@ -11,6 +12,8 @@ export async function SettingsPage() {
   if (!user) return null
 
   const userHasPassword = await hasPassword(user.id)
+
+  const t = await getTranslations("userSettings")
 
   return (
     <Container className="py-8 sm:py-12">
@@ -23,10 +26,10 @@ export async function SettingsPage() {
             <span className="h-px w-8 bg-border" />
           </div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Настройки
+            {t("title")}
           </h1>
           <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">
-            Управляйте информацией профиля и настройками аккаунта.
+            {t("description")}
           </p>
         </div>
 

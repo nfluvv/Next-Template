@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Button, Container } from "@/shared/ui"
+import { getTranslations } from "next-intl/server"
+import { Button, Container } from "@/shared/client/ui"
 
 type ActionButton = {
   label: string
@@ -18,21 +19,29 @@ type ForbiddenPageProps = {
   searchParams: Promise<{ reason?: string }>
 }
 
-const MESSAGES: Record<string, MessageContent> = {
-  unauthenticated: {
-    title: "Нужна авторизация",
-    description: "Чтобы попасть на эту страницу, сначала войдите в аккаунт.",
-    actions: [{ label: "Войти", href: "/login", variant: "default" }],
-  },
-  forbidden: {
-    title: "Доступ запрещён",
-    description: "У вас недостаточно прав для просмотра этой страницы.",
-    actions: [{ label: "На главную", href: "/", variant: "outline" }],
-  },
-}
-
 export async function ForbiddenPage({ searchParams }: ForbiddenPageProps) {
   const { reason } = await searchParams
+  const t = await getTranslations("forbidden")
+
+  const MESSAGES: Record<string, MessageContent> = {
+    unauthenticated: {
+      title: t("unauthenticatedTitle"),
+      description: t("unauthenticatedDescription"),
+      actions: [
+        {
+          label: t("unauthenticatedAction"),
+          href: "/login",
+          variant: "default",
+        },
+      ],
+    },
+    forbidden: {
+      title: t("forbiddenTitle"),
+      description: t("forbiddenDescription"),
+      actions: [{ label: t("forbiddenAction"), href: "/", variant: "outline" }],
+    },
+  }
+
   const currentReason = reason && MESSAGES[reason] ? reason : "forbidden"
   const { title, description, actions } = MESSAGES[currentReason]
 

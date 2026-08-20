@@ -8,6 +8,7 @@ A ready-to-use foundation for applications that need more than a simple login fo
 
 ### ✨ Features
 
+- **Language Switching** — eng + ru.
 - **Credentials Authentication** — email + password registration and login.
 - **OAuth Authentication** — Google and GitHub providers.
 - **Email Verification** — secure, single-use verification tokens with automatic login.

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 
 import { getCurrentUser, getUserByUsername } from "@/entities/user/api/queries"
 import { UserProfile } from "@/widgets/user-profile-card"
-import { Container } from "@/shared/ui"
+import { Container } from "@/shared/client/ui"
 
 type UserProfileViewProps = {
   username: string

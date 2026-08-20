@@ -1,10 +1,8 @@
 import type { Metadata } from "next"
-import { Manrope, Inter } from "next/font/google"
-import Script from "next/script"
+import { cookies } from "next/headers"
+import { Inter, Manrope } from "next/font/google"
 
-import { siteConfig } from "@/shared/config/site"
-import { Header } from "@/widgets/header"
-import { AppProviders } from "@/app/providers"
+import { siteConfig } from "@/shared/client/config/site"
 
 import "./globals.css"
 
@@ -20,50 +18,31 @@ const fontDisplay = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} | Главная`,
+    default: siteConfig.name,
     template: `${siteConfig.name} | %s`,
   },
   description: siteConfig.description,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const cookieStore = await cookies()
+  const resolvedTheme = cookieStore.get("resolved-theme")?.value
+
+  const isDark = resolvedTheme !== "light"
+
   return (
     <html
-      lang="ru"
+      lang="en"
       suppressHydrationWarning
-      className={`${fontSans.variable} ${fontDisplay.variable}`}
+      className={`${fontSans.variable} ${fontDisplay.variable} ${
+        isDark ? "dark" : ""
+      }`}
     >
-      <body>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`
-            (function () {
-              try {
-                var theme = localStorage.getItem('theme') || 'system';
-
-                var isDark =
-                  theme === 'dark' ||
-                  (
-                    theme === 'system' &&
-                    window.matchMedia(
-                      '(prefers-color-scheme: dark)'
-                    ).matches
-                  );
-
-                document.documentElement.classList.toggle('dark', isDark);
-              } catch (e) {}
-            })();
-          `}
-        </Script>
-
-        <AppProviders>
-          <Header />
-          {children}
-        </AppProviders>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

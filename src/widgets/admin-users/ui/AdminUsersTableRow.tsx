@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { RoleSelect } from "@/features/admin"
+import { RoleSelect } from "@/features/update-user-role"
 
 import {
   Avatar,
@@ -8,7 +8,7 @@ import {
   AvatarImage,
   TableCell,
   TableRow,
-} from "@/shared/ui"
+} from "@/shared/client/ui"
 
 import type { AdminUsersResponse } from "../api/use-admin-users-query"
 

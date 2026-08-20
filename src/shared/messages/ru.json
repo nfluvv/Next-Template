@@ -1,0 +1,379 @@
+{
+  "common": {
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "back": "Назад",
+    "email": "Email",
+    "connect": "Привязать",
+    "disconnect": "Отвязать",
+    "connected": "Подключено",
+    "notConnected": "Не подключено",
+    "active": "Активен"
+  },
+
+  "emails": {
+    "verifyEmail": {
+        "subject": "Подтвердите email",
+        "heading": "Подтверждение email",
+        "body": "Перейдите по ссылке, чтобы подтвердить свой email. Ссылка действует 24 часа.",
+        "cta": "Подтвердить email",
+        "ignoreNote": "Если вы не регистрировались — просто проигнорируйте это письмо."
+    },
+    "resetPassword": {
+        "subject": "Сброс пароля",
+        "heading": "Сброс пароля",
+        "body": "Перейдите по ссылке, чтобы задать новый пароль. Ссылка действует 1 час.",
+        "cta": "Сбросить пароль",
+        "ignoreNote": "Если вы не запрашивали сброс пароля — просто проигнорируйте это письмо."
+    },
+    "changeEmail": {
+        "subject": "Подтвердите новый email",
+        "heading": "Подтверждение нового email",
+        "body": "Вы запросили смену email на этот адрес. Перейдите по ссылке, чтобы подтвердить. Ссылка действует 1 час.",
+        "cta": "Подтвердить новый email",
+        "ignoreNote": "Если вы не запрашивали смену email — просто проигнорируйте это письмо."
+    }
+},
+
+  "loginForm": {
+    "successLogin": "Успешный вход",
+    "invalidCredentials": "Неверный email или пароль",
+    "loginError": "Ошибка при входе",
+    "genericError": "Что-то пошло не так",
+    "invalidCode": "Неверный код",
+    "verificationEmailSent": "Письмо отправлено, проверьте почту",
+    "verificationEmailError": "Не удалось отправить письмо",
+    "loggingIn": "Входим..."
+  },
+
+  "validation": {
+    "emailRequired": "Введите email",
+    "emailInvalid": "Некорректный email",
+    "passwordMin": "Минимум 8 символов",
+    "passwordsMismatch": "Пароли не совпадают",
+    "nameMin": "Минимум 2 символа",
+    "nameMax": "Максимум 50 символов",
+    "usernameMin": "Минимум 3 символа",
+    "usernameMax": "Максимум 20 символов",
+    "usernameFormat": "Только латиница, цифры и подчёркивание",
+    "codeLength": "Код должен состоять из 6 цифр",
+    "codeDigitsOnly": "Только цифры",
+    "deleteConfirmation": "Введите DELETE для подтверждения"
+  },
+
+  "authError": {
+    "OAuthAccountNotLinked": "Этот email уже используется другим способом входа. Попробуйте войти так, как регистрировались изначально.",
+    "OAuthSignin": "Не удалось начать вход через провайдер. Попробуйте ещё раз.",
+    "OAuthCallback": "Ошибка при обработке ответа от провайдера. Попробуйте ещё раз.",
+    "AccessDenied": "Не удалось привязать аккаунт — убедитесь, что используете тот же email.",
+    "Verification": "Ссылка для входа устарела или уже использована.",
+    "CredentialsSignin": "Неверный email или пароль.",
+    "Configuration": "Ошибка конфигурации сервера. Обратитесь к администратору.",
+    "Default": "Что-то пошло не так при входе. Попробуйте ещё раз.",
+    "emailVerified": "Email подтверждён. Войдите, чтобы продолжить."
+  },
+
+  "passwordStrength": {
+    "label": "Сложность пароля",
+    "weak": "Слабый",
+    "fair": "Нормальный",
+    "good": "Надёжный",
+    "strong": "Идеальный"
+  },
+
+  "meta": {
+    "settingsTitle": "Настройки",
+    "forbiddenTitle": "Доступ запрещён",
+    "adminTitle": "Админ-панель",
+    "homeTitle": "Главная",
+    "confirmEmailChangeTitle": "Изменение почты",
+    "verifyEmailTitle": "Подтверждение почты",
+    "forgotPasswordTitle": "Восстановление пароля",
+    "loginTitle": "Вход",
+    "registerTitle": "Регистрация",
+    "resetPasswordTitle": "Сброс пароля",
+    "userNotFound": "Пользователь не найден"
+  },
+
+  "Auth": {
+    "login": "Войти",
+    "theLogin": "Вход",
+    "register": "Регистрация",
+    "password": "Пароль",
+    "passwordRepeat": "Повторите пароль",
+    "toRegister": "Зарегистрироваться",
+    "toRegisterPending": "Регистрируем...",
+    "forgotPassword": "Забыли пароль?",
+    "Name": "Имя",
+    "NameExample": "Иван",
+    "continueWith": "Войти через"
+  },
+
+  "forbidden": {
+    "unauthenticatedTitle": "Нужна авторизация",
+    "unauthenticatedDescription": "Чтобы попасть на эту страницу, сначала войдите в аккаунт.",
+    "unauthenticatedAction": "Войти",
+    "forbiddenTitle": "Доступ запрещён",
+    "forbiddenDescription": "У вас недостаточно прав для просмотра этой страницы.",
+    "forbiddenAction": "На главную"
+  },
+
+  "errorPage": {
+    "title": "Что-то пошло не так",
+    "description": "Произошла непредвиденная ошибка. Мы уже знаем о проблеме — попробуйте обновить страницу.",
+    "errorId": "ID ошибки: {digest}",
+    "retry": "Попробовать снова",
+    "home": "На главную"
+  },
+
+  "confirmEmailChange": {
+    "invalidTitle": "Ссылка недействительна",
+    "invalidTokenDescription": "В ссылке отсутствует токен подтверждения.",
+    "title": "Подтверждение нового email",
+    "description": "Нажмите кнопку, чтобы подтвердить смену email.",
+    "confirm": "Подтвердить",
+    "expiredDescription": "Ссылка устарела, уже использована, либо email уже занят. Попробуйте запросить смену email заново в настройках.",
+    "toSettings": "В настройки"
+  },
+
+  "userNotFound": {
+    "title": "Пользователь не найден",
+    "description": "Возможно, аккаунт был удалён или ссылка неверна.",
+    "action": "На главную"
+  },
+
+  "verifyEmail": {
+    "invalidTitle": "Ссылка недействительна",
+    "invalidTokenDescription": "В ссылке отсутствует токен подтверждения.",
+    "expiredDescription": "Ссылка устарела или уже была использована. Попробуйте войти — если email всё ещё не подтверждён, там можно запросить письмо заново.",
+    "login": "Войти",
+    "title": "Подтверждение email",
+    "description": "Нажмите кнопку, чтобы подтвердить свой email.",
+    "confirm": "Подтвердить email"
+  },
+
+  "twoFactorVerify": {
+    "title": "Подтверждение входа",
+    "description": "Введите код из приложения-аутентификатора или резервный код.",
+    "code": "Код из приложения",
+    "submitPending": "Проверяем...",
+    "submit": "Войти"
+  },
+
+  "forgotPassword": {
+    "title": "Восстановление пароля",
+    "description": "Введите email — мы отправим ссылку для сброса пароля.",
+    "submit": "Отправить ссылку",
+    "submitPending": "Отправляем...",
+    "titleEmailStep": "Проверьте почту",
+    "resetLinkSent": "Если аккаунт с {email} существует, мы отправили на него ссылку для сброса пароля."
+  },
+
+  "resetPassword": {
+    "invalidTitle": "Ссылка недействительна",
+    "invalidDescription": "В ссылке отсутствует токен сброса пароля.",
+    "backToLogin": "Войти",
+    "title": "Новый пароль",
+    "newPasswordLabel": "Новый пароль",
+    "confirmPasswordLabel": "Повторите пароль",
+    "saving": "Сохраняем...",
+    "submit": "Сохранить пароль",
+    "successTitle": "Пароль обновлён",
+    "successDescription": "Переносим вас на страницу входа..."
+  },
+
+  "roleSelect": {
+    "success": "Роль обновлена",
+    "confirmTitle": "Выдать права администратора?",
+    "confirmDescription": "Пользователь «{userLabel}» получит полный доступ к админ-панели, включая управление ролями других пользователей.",
+    "grantAccess": "Выдать права"
+  },
+
+  "adminUsers": {
+    "title": "Пользователи",
+    "loadError": "Не удалось загрузить пользователей.",
+    "columnUser": "Пользователь",
+    "columnEmail": "Email",
+    "columnRole": "Роль",
+    "loading": "Загрузка...",
+    "empty": "Пользователи не найдены",
+    "total": "Всего: {total}",
+    "searchPlaceholder": "Поиск по имени или email...",
+    "pagination": "Страница {page} из {totalPages}",
+    "next": "Вперёд"
+  },
+
+  "userMenu": {
+    "myProfile": "Мой профиль",
+    "settings": "Настройки",
+    "signOut": "Выйти",
+    "admin": "Админка"
+  },
+
+  "profile": {
+    "edit": "Редактировать профиль",
+    "memberSince": "На платформе с"
+  },
+
+  "userSettings": {
+    "title": "Настройки",
+    "description": "Управляйте информацией профиля и настройками аккаунта.",
+    "profile": "Профиль",
+    "profileDesc": "Основная информация вашего профиля.",
+    "uploadAvatar": "Изменить аватар",
+    "avatarTitle": "Аватар",
+    "avatarDesc": "Изображение, которое будет отображаться в вашем профиле.",
+    "nameTitle": "Имя",
+    "nameDesc": "Отображаемое имя, которое видят другие пользователи.",
+    "usernameTitle": "Юзернейм",
+    "usernameDesc": "Уникальный идентификатор вашего профиля.",
+    "security": "Безопасность",
+    "securityDesc": "Настройки входа и защиты вашего аккаунта.",
+    "2faTitle": "Двухфакторная аутентификация",
+    "2faDesc": "Дополнительный уровень защиты при входе в аккаунт.",
+    "2faDisabledHint": "Двухфакторная аутентификация не включена. Добавьте дополнительный слой защиты аккаунта.",
+    "2faEnable": "Включить 2FA",
+    "2faEnabledHint": "Двухфакторная аутентификация включена. Чтобы отключить её, подтвердите действие кодом из приложения.",
+    "2faDisable": "Отключить",
+    "shangePassword": "Смена пароля",
+    "changePasswordDesc": "Обновите пароль для защиты вашего аккаунта.",
+    "setPassword": "Установка пароля",
+    "setPasswordDesc": "Добавьте пароль, чтобы дополнительно защитить аккаунт.",
+    "changeEmailTitle": "Email",
+    "changeEmailDesc": "Email для входа и уведомлений.",
+    "connectionsTitle": "Подключения",
+    "connectionsDesc": "Внешние сервисы, связанные с вашим аккаунтом.",
+    "dangerZoneTitle": "Опасная зона",
+    "dangerZoneDesc": "Необратимые действия с аккаунтом.",
+    "deleteAccountTitle": "Удаление аккаунта",
+    "deleteAccountDesc": "Это действие необратимо и удалит все ваши данные без возможности восстановления.",
+    "deleteAccount": "Удалить аккаунт"
+  },
+
+  "deleteAccount": {
+    "deleteAccountLabel": "Удалить аккаунт",
+    "deleteAccountTitle": "Удалить аккаунт навсегда?",
+    "deleteAccountDesc": "Это действие необратимо. Все данные аккаунта будут удалены без возможности восстановления.",
+    "confirmationPrefix": "Введите",
+    "confirmationWord": "DELETE",
+    "confirmationSuffix": "для подтверждения",
+    "password": "Пароль",
+    "twoFactorCode": "Код из приложения",
+    "totpPlaceholder": "123456",
+    "delete": "Удалить навсегда",
+    "deletePending": "Удаляем...",
+    "success": "Аккаунт удалён"
+  },
+
+  "changeEmail": {
+    "currentEmail": "Текущий email: {email}",
+    "newEmail": "Новый email",
+    "password": "Пароль",
+    "twoFactorCode": "Код из приложения",
+    "totpPlaceholder": "123456",
+    "submit": "Изменить email",
+    "submitPending": "Отправляем...",
+    "success": "Письмо с подтверждением отправлено на новый адрес"
+  },
+
+  "changePasswordForm": {
+    "currentPassword": "Текущий пароль",
+    "newPassword": "Новый пароль",
+    "confirmPassword": "Повторите новый пароль",
+    "saving": "Сохраняем...",
+    "changePassword": "Изменить пароль",
+    "setPassword": "Установить пароль",
+    "unexpectedError": "Что-то пошло не так, попробуйте ещё раз"
+  },
+
+  "twoFactor": {
+    "backupStep": "02 / РЕЗЕРВНЫЕ КОДЫ",
+    "backupTitle": "Сохраните резервные коды",
+    "backupDescription": "Каждый код можно использовать только один раз. Сохраните их в надёжном месте — повторно они показываться не будут.",
+    "done": "Готово",
+    "disableDescription": "Двухфакторная аутентификация включена. Чтобы отключить её, подтвердите действие кодом из приложения.",
+    "code": "Код из приложения",
+    "codePlaceholder": "123456",
+    "checking": "Проверяем...",
+    "disable": "Отключить",
+    "confirm": "Подтвердить",
+    "disabledSuccess": "Двухфакторная аутентификация отключена",
+    "notEnabledDescription": "Двухфакторная аутентификация не включена. Добавьте дополнительный слой защиты аккаунта.",
+    "enable": "Включить 2FA",
+    "setupTitle": "Настройка 2FA",
+    "setupDescription": "Отсканируйте QR-код в приложении-аутентификаторе. После этого введите сгенерированный код.",
+    "qrCodeAlt": "QR-код для настройки двухфакторной аутентификации",
+    "manualSetupKey": "Ключ для ручной настройки"
+  },
+
+  "SiteConfig": {
+    "description": "Шаблон Next.js на архитектуре FSD"
+  },
+
+  "NotFound": {
+    "title": "Страница не найдена",
+    "description": "Запрашиваемая страница не существует.",
+    "backHome": "На главную"
+  },
+
+  "Home": {
+    "description": "Next.js + Feature-Sliced Design + Auth.js + Prisma/Postgres + Zod + React Hook Form - всё уже настроено, начинай писать фичи.",
+    "register": "Начать",
+    "login": "Войти"
+  },
+
+  "linkProvider": {
+    "link": "Привязать",
+    "active": "Активен",
+    "unlink": "Отвязать",
+    "unlinkPending": "Отвязываем...",
+    "unlinkTitle": "Отвязать {provider}?",
+    "unlinkDescription": "Вы больше не сможете входить через {provider}. Убедитесь, что у вас остаётся другой способ входа.",
+    "unlinkSuccess": "{provider} отвязан"
+  },
+
+  "avatarUploader": {
+    "onlyImages": "Можно загружать только изображения",
+    "maxFileSize": "Максимальный размер файла — 2MB",
+    "cloudinaryUploadFailed": "Не удалось загрузить файл в Cloudinary",
+    "updateFailed": "Не удалось загрузить аватар",
+    "success": "Аватар обновлён",
+    "uploading": "Загружаем...",
+    "change": "Изменить аватар"
+  },
+
+  "updateUsername": {
+    "label": "Юзернейм",
+    "placeholder": "john_doe",
+    "success": "Юзернейм обновлён",
+    "saving": "Сохраняем..."
+  },
+
+  "updateName": {
+    "label": "Имя",
+    "success": "Имя обновлено",
+    "saving": "Сохраняем..."
+  },
+
+  "registerSuccess": {
+    "title": "Проверьте почту",
+    "description": "Мы отправили письмо на <email></email>. Перейдите по ссылке в письме, чтобы завершить регистрацию.",
+    "pending": "Ожидает подтверждения",
+    "backToLogin": "Вернуться ко входу"
+},
+
+  "loginVerification": {
+    "notVerified": "Email не подтверждён.",
+    "checkInboxOrResend": "Проверьте почту или запросите письмо повторно.",
+    "resending": "Отправляем...",
+    "resend": "Отправить письмо снова"
+},
+
+  "themes": {
+    "dark": "Тёмная",
+    "light": "Светлая",
+    "system": "Системная",
+    "toggle": "Изменить тему"
+  }
+}

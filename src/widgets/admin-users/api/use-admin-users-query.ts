@@ -31,7 +31,7 @@ export function useAdminUsersQuery(query: string, page: number) {
       const res = await fetch(`/api/admin/users?${params}`)
 
       if (!res.ok) {
-        throw new Error("Не удалось загрузить пользователей")
+        throw new Error("Failed to load users")
       }
 
       return res.json()

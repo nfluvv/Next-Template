@@ -54,7 +54,7 @@ describe("usernameSchema", () => {
 
 describe("deleteAccountSchema", () => {
   it("требует точное слово DELETE для подтверждения", () => {
-    const result = deleteAccountSchema.safeParse({ confirmation: "delete" }) // строчными — не подходит
+    const result = deleteAccountSchema.safeParse({ confirmation: "delete" })
     expect(result.success).toBe(false)
   })
 

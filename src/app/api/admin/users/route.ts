@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 
-import { auth } from "@/shared/config/auth"
+import { auth } from "@/auth"
 import { getAllUsers } from "@/entities/user/api/queries"
 
 export async function GET(request: NextRequest) {

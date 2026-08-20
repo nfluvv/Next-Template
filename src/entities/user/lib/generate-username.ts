@@ -1,6 +1,6 @@
 import "server-only"
 
-import { prisma } from "@/shared/api/prisma"
+import { prisma } from "@/shared/server/db/prisma"
 
 const slugify = (input: string) =>
   input

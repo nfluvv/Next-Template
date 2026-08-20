@@ -2,8 +2,9 @@
 
 import { useState } from "react"
 import { useQueryClient } from "@tanstack/react-query"
+import { useTranslations } from "next-intl"
 
-import { UsersPagination } from "@/features/admin"
+import { UsersPagination } from "./UsersPagination"
 
 import {
   adminUsersQueryKey,
@@ -24,6 +25,7 @@ export function AdminUsers({
   initialPage,
   currentUserId,
 }: AdminUsersProps) {
+  const t = useTranslations("adminUsers")
   const queryClient = useQueryClient()
 
   const [query, setQuery] = useState(initialQuery)
@@ -43,11 +45,7 @@ export function AdminUsers({
   }
 
   if (isError) {
-    return (
-      <p className="text-sm text-destructive">
-        Не удалось загрузить пользователей.
-      </p>
-    )
+    return <p className="text-sm text-destructive">{t("loadError")}</p>
   }
 
   return (

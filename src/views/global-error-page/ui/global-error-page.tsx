@@ -26,10 +26,10 @@ export function GlobalErrorPage({ error, reset }: GlobalErrorProps) {
           }}
         >
           <h1 style={{ fontSize: "1.5rem", fontWeight: 600 }}>
-            Критическая ошибка приложения
+            Critical application error
           </h1>
           <p style={{ color: "#888", maxWidth: "24rem" }}>
-            Что-то серьёзно сломалось. Попробуйте перезагрузить страницу.
+            Something's seriously broken. Try refreshing the page.
           </p>
           {error.digest && (
             <p
@@ -39,7 +39,7 @@ export function GlobalErrorPage({ error, reset }: GlobalErrorProps) {
                 color: "#aaa",
               }}
             >
-              ID ошибки: {error.digest}
+              Error ID: {error.digest}
             </p>
           )}
           <button
@@ -53,7 +53,7 @@ export function GlobalErrorPage({ error, reset }: GlobalErrorProps) {
               cursor: "pointer",
             }}
           >
-            Попробовать снова
+            Try again
           </button>
         </div>
       </body>

@@ -1,0 +1,379 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "email": "Email",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "connected": "Connected",
+    "notConnected": "Not connected",
+    "active": "Active"
+  },
+
+  "emails": {
+    "verifyEmail": {
+        "subject": "Confirm your email",
+        "heading": "Confirm your email",
+        "body": "Click the link to confirm your email. The link is valid for 24 hours.",
+        "cta": "Confirm email",
+        "ignoreNote": "If you didn't sign up, just ignore this email."
+    },
+    "resetPassword": {
+        "subject": "Reset your password",
+        "heading": "Reset your password",
+        "body": "Click the link to set a new password. The link is valid for 1 hour.",
+        "cta": "Reset password",
+        "ignoreNote": "If you didn't request a password reset, just ignore this email."
+    },
+    "changeEmail": {
+        "subject": "Confirm your new email",
+        "heading": "Confirm your new email",
+        "body": "You requested to change your email to this address. Click the link to confirm. The link is valid for 1 hour.",
+        "cta": "Confirm new email",
+        "ignoreNote": "If you didn't request an email change, just ignore this email."
+    }
+},
+
+  "loginForm": {
+    "successLogin": "Signed in successfully",
+    "invalidCredentials": "Incorrect email or password",
+    "loginError": "Error signing in",
+    "genericError": "Something went wrong",
+    "invalidCode": "Incorrect code",
+    "verificationEmailSent": "Email sent, check your inbox",
+    "verificationEmailError": "Failed to send the email",
+    "loggingIn": "Signing in..."
+  },
+
+  "validation": {
+    "emailRequired": "Enter your email",
+    "emailInvalid": "Invalid email",
+    "passwordMin": "At least 8 characters",
+    "passwordsMismatch": "Passwords don't match",
+    "nameMin": "At least 2 characters",
+    "nameMax": "Up to 50 characters",
+    "usernameMin": "At least 3 characters",
+    "usernameMax": "Up to 20 characters",
+    "usernameFormat": "Only lowercase letters, digits, and underscores",
+    "codeLength": "The code must be 6 digits",
+    "codeDigitsOnly": "Digits only",
+    "deleteConfirmation": "Enter DELETE to confirm"
+  },
+
+  "authError": {
+    "OAuthAccountNotLinked": "This email is already used with a different sign-in method. Try signing in the way you originally registered.",
+    "OAuthSignin": "Couldn't start sign-in with the provider. Please try again.",
+    "OAuthCallback": "Error handling the provider's response. Please try again.",
+    "AccessDenied": "Couldn't link the account — make sure you're using the same email.",
+    "Verification": "The sign-in link has expired or was already used.",
+    "CredentialsSignin": "Incorrect email or password.",
+    "Configuration": "Server configuration error. Please contact an administrator.",
+    "Default": "Something went wrong while signing in. Please try again.",
+    "emailVerified": "Email verified. Log in to continue."
+  },
+
+  "passwordStrength": {
+    "label": "Password strength",
+    "weak": "Weak",
+    "fair": "Fair",
+    "good": "Good",
+    "strong": "Strong"
+  },
+
+  "meta": {
+    "settingsTitle": "Settings",
+    "forbiddenTitle": "Access denied",
+    "adminTitle": "Admin panel",
+    "homeTitle": "Home",
+    "confirmEmailChangeTitle": "Change email",
+    "verifyEmailTitle": "Verify email",
+    "forgotPasswordTitle": "Reset password",
+    "loginTitle": "Log in",
+    "registerTitle": "Sign up",
+    "resetPasswordTitle": "Reset password",
+    "userNotFound": "Uset not found"
+  },
+
+  "Auth": {
+    "login": "Log in",
+    "theLogin": "Log in",
+    "register": "Sign up",
+    "password": "Password",
+    "passwordRepeat": "Repeat password",
+    "toRegister": "Sign up",
+    "toRegisterPending": "Signing up...",
+    "forgotPassword": "Forgot password?",
+    "Name": "Name",
+    "NameExample": "John",
+    "continueWith": "Continue with"
+  },
+
+  "twoFactorVerify": {
+    "title": "Verify your sign-in",
+    "description": "Enter the code from your authenticator app or a backup code.",
+    "code": "Authenticator code",
+    "submitPending": "Checking...",
+    "submit": "Log in"
+  },
+
+  "forgotPassword": {
+    "title": "Reset your password",
+    "description": "Enter your email and we'll send you a reset link.",
+    "submit": "Send reset link",
+    "submitPending": "Sending...",
+    "titleEmailStep": "Check your email",
+    "resetLinkSent": "If an account with {email} exists, we have sent a password reset link to it."
+  },
+
+  "resetPassword": {
+    "invalidTitle": "Invalid link",
+    "invalidDescription": "This link is missing a password reset token.",
+    "backToLogin": "Log in",
+    "title": "New password",
+    "newPasswordLabel": "New password",
+    "confirmPasswordLabel": "Repeat password",
+    "saving": "Saving...",
+    "submit": "Save password",
+    "successTitle": "Password updated",
+    "successDescription": "Redirecting you to the login page..."
+  },
+
+  "roleSelect": {
+    "success": "Role updated",
+    "confirmTitle": "Grant administrator access?",
+    "confirmDescription": "The user \"{userLabel}\" will get full access to the admin panel, including managing other users' roles.",
+    "grantAccess": "Grant access"
+  },
+
+  "adminUsers": {
+    "title": "Users",
+    "loadError": "Failed to load users.",
+    "columnUser": "User",
+    "columnEmail": "Email",
+    "columnRole": "Role",
+    "loading": "Loading...",
+    "empty": "No users found",
+    "total": "Total: {total}",
+    "searchPlaceholder": "Search by name or email...",
+    "pagination": "Page {page} of {totalPages}",
+    "next": "Next"
+  },
+
+  "forbidden": {
+    "unauthenticatedTitle": "Sign in required",
+    "unauthenticatedDescription": "You need to log in to access this page.",
+    "unauthenticatedAction": "Log in",
+    "forbiddenTitle": "Access denied",
+    "forbiddenDescription": "You don't have permission to view this page.",
+    "forbiddenAction": "Back home"
+  },
+
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. We're already aware of it — try refreshing the page.",
+    "errorId": "Error ID: {digest}",
+    "retry": "Try again",
+    "home": "Back home"
+  },
+
+  "confirmEmailChange": {
+    "invalidTitle": "Invalid link",
+    "invalidTokenDescription": "This link is missing a confirmation token.",
+    "title": "Confirm your new email",
+    "description": "Click the button to confirm your email change.",
+    "confirm": "Confirm",
+    "expiredDescription": "This link has expired, was already used, or the email is already taken. Try requesting the email change again in settings.",
+    "toSettings": "Go to settings"
+  },
+
+  "userNotFound": {
+    "title": "User not found",
+    "description": "This account may have been deleted, or the link is incorrect.",
+    "action": "Back home"
+  },
+
+  "verifyEmail": {
+    "invalidTitle": "Invalid link",
+    "invalidTokenDescription": "This link is missing a confirmation token.",
+    "expiredDescription": "This link has expired or was already used. Try logging in — if your email is still unverified, you can request a new link there.",
+    "login": "Log in",
+    "title": "Verify your email",
+    "description": "Click the button to verify your email.",
+    "confirm": "Verify email"
+  },
+
+  "userMenu": {
+    "myProfile": "My profile",
+    "settings": "Settings",
+    "signOut": "Sign out",
+    "admin": "Admin"
+  },
+
+  "profile": {
+    "edit": "Edit profile",
+    "memberSince": "Member since"
+  },
+
+  "userSettings": {
+    "title": "Settings",
+    "description": "Manage your profile information and account settings.",
+    "profile": "Profile",
+    "profileDesc": "Your basic profile information.",
+    "uploadAvatar": "Change avatar",
+    "avatarTitle": "Avatar",
+    "avatarDesc": "The image shown on your profile.",
+    "nameTitle": "Name",
+    "nameDesc": "The display name other users will see.",
+    "usernameTitle": "Username",
+    "usernameDesc": "A unique identifier for your profile.",
+    "security": "Security",
+    "securityDesc": "Sign-in and account protection settings.",
+    "2faTitle": "Two-factor authentication",
+    "2faDesc": "Add an extra layer of security to your sign-in.",
+    "2faDisabledHint": "Two-factor authentication is not enabled. Add an extra layer of protection to your account.",
+    "2faEnable": "Enable 2FA",
+    "2faEnabledHint": "Two-factor authentication is enabled. Confirm with a code from your app to disable it.",
+    "2faDisable": "Disable",
+    "shangePassword": "Change password",
+    "changePasswordDesc": "Update your password to protect your account.",
+    "setPassword": "Setting a password",
+    "setPasswordDesc": "Add a password to further secure your account.",
+    "changeEmailTitle": "Email",
+    "changeEmailDesc": "Email for login and notifications.",
+    "connectionsTitle": "Connections",
+    "connectionsDesc": "External services linked to your account.",
+    "dangerZoneTitle": "Danger zone",
+    "dangerZoneDesc": "Irreversible actions on your account.",
+    "deleteAccountTitle": "Delete account",
+    "deleteAccountDesc": "This action is irreversible and will permanently delete all your data.",
+    "deleteAccount": "Delete account"
+  },
+
+  "deleteAccount": {
+    "deleteAccountLabel": "Delete account",
+    "deleteAccountTitle": "Delete account permanently?",
+    "deleteAccountDesc": "This action is irreversible. All account data will be permanently deleted.",
+    "confirmationPrefix": "Enter",
+    "confirmationWord": "DELETE",
+    "confirmationSuffix": "to confirm",
+    "password": "Password",
+    "twoFactorCode": "Code from the authenticator app",
+    "totpPlaceholder": "123456",
+    "delete": "Delete permanently",
+    "deletePending": "Deleting...",
+    "success": "Account deleted"
+  },
+
+  "changeEmail": {
+    "currentEmail": "Current email: {email}",
+    "newEmail": "New email",
+    "password": "Password",
+    "twoFactorCode": "Code from the authenticator app",
+    "totpPlaceholder": "123456",
+    "submit": "Change email",
+    "submitPending": "Sending...",
+    "success": "A confirmation email has been sent to your new address"
+  },
+
+  "changePasswordForm": {
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Repeat new password",
+    "saving": "Saving...",
+    "changePassword": "Change password",
+    "setPassword": "Set password",
+    "unexpectedError": "Something went wrong. Please try again."
+  },
+
+  "twoFactor": {
+    "backupStep": "02 / BACKUP",
+    "backupTitle": "Save your backup codes",
+    "backupDescription": "Each code can only be used once. Store them somewhere safe — they will not be shown again.",
+    "done": "Done",
+    "disableDescription": "Two-factor authentication is enabled. Confirm with a code from your authenticator app to disable it.",
+    "code": "Authenticator code",
+    "codePlaceholder": "123456",
+    "checking": "Checking...",
+    "disable": "Disable",
+    "confirm": "Confirm",
+    "disabledSuccess": "Two-factor authentication disabled",
+    "notEnabledDescription": "Two-factor authentication is not enabled. Add an extra layer of protection to your account.",
+    "enable": "Enable 2FA",
+    "setupTitle": "Set up 2FA",
+    "setupDescription": "Scan the QR code in your authenticator app, then enter the generated code.",
+    "qrCodeAlt": "QR code for two-factor authentication setup",
+    "manualSetupKey": "Manual setup key"
+  },
+
+  "SiteConfig": {
+    "description": "A Next.js starter built with FSD architecture"
+  },
+
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist.",
+    "backHome": "Back home"
+  },
+
+  "Home": {
+    "description": "Next.js + Feature-Sliced Design + Auth.js + Prisma/Postgres + Zod + React Hook Form - everything's set up, start building features.",
+    "register": "Get started",
+    "login": "Log in"
+  },
+
+  "linkProvider": {
+    "link": "Connect",
+    "active": "Active",
+    "unlink": "Disconnect",
+    "unlinkPending": "Disconnecting...",
+    "unlinkTitle": "Disconnect {provider}?",
+    "unlinkDescription": "You will no longer be able to sign in through {provider}. Make sure you have another way to sign in.",
+    "unlinkSuccess": "{provider} disconnected"
+  },
+
+  "avatarUploader": {
+    "onlyImages": "Only image files can be uploaded",
+    "maxFileSize": "Maximum file size is 2MB",
+    "cloudinaryUploadFailed": "Failed to upload the file to Cloudinary",
+    "updateFailed": "Failed to upload avatar",
+    "success": "Avatar updated",
+    "uploading": "Uploading...",
+    "change": "Change avatar"
+  },
+
+  "updateUsername": {
+    "label": "Username",
+    "placeholder": "john_doe",
+    "success": "Username updated",
+    "saving": "Saving..."
+  },
+
+  "updateName": {
+    "label": "Name",
+    "success": "Name updated",
+    "saving": "Saving..."
+  },
+
+  "registerSuccess": {
+    "title": "Check your email",
+    "description": "We've sent an email to <email></email>. Click the link in the email to complete your registration.",
+    "pending": "Verification pending",
+    "backToLogin": "Back to login"
+},
+
+  "loginVerification": {
+    "notVerified": "Email not verified.",
+    "checkInboxOrResend": "Check your inbox or request a new email.",
+    "resending": "Sending...",
+    "resend": "Resend email"
+},
+
+  "themes": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System",
+    "toggle": "Change theme"
+  }
+}

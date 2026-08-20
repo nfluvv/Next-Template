@@ -1,17 +1,21 @@
-import { verifyEmailToken } from "@/features/auth/api/email-verification"
-import { Button } from "@/shared/ui"
+import { getTranslations } from "next-intl/server"
+
+import { verifyEmailToken } from "@/features/verify-email/api/email-verification"
+import { Button } from "@/shared/client/ui"
 
 type VerifyEmailViewProps = {
   token?: string
 }
 
-export function VerifyEmailView({ token }: VerifyEmailViewProps) {
+export async function VerifyEmailView({ token }: VerifyEmailViewProps) {
+  const t = await getTranslations("verifyEmail")
+
   if (!token) {
     return (
       <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-4 px-4 text-center">
-        <h1 className="text-2xl font-semibold">Ссылка недействительна</h1>
+        <h1 className="text-2xl font-semibold">{t("invalidTitle")}</h1>
         <p className="max-w-sm text-muted-foreground">
-          В ссылке отсутствует токен подтверждения.
+          {t("invalidTokenDescription")}
         </p>
       </div>
     )
@@ -19,12 +23,10 @@ export function VerifyEmailView({ token }: VerifyEmailViewProps) {
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-4 px-4 text-center">
-      <h1 className="text-2xl font-semibold">Подтверждение email</h1>
-      <p className="max-w-sm text-muted-foreground">
-        Нажмите кнопку, чтобы подтвердить свой email.
-      </p>
+      <h1 className="text-2xl font-semibold">{t("title")}</h1>
+      <p className="max-w-sm text-muted-foreground">{t("description")}</p>
       <form action={verifyEmailToken.bind(null, token)}>
-        <Button type="submit">Подтвердить email</Button>
+        <Button type="submit">{t("confirm")}</Button>
       </form>
     </div>
   )

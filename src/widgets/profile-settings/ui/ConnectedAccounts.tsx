@@ -1,5 +1,6 @@
-import { GitHubIcon, GoogleIcon } from "@/shared/ui"
-import { LinkProviderButton } from "@/features/user-profile"
+import { GitHubIcon, GoogleIcon } from "@/shared/client/ui"
+import { LinkProviderButton } from "@/features/manage-oauth"
+import { useTranslations } from "next-intl"
 
 type Provider = "google" | "github"
 
@@ -16,6 +17,8 @@ const PROVIDERS: Array<{
 
 export function ConnectedAccounts({ google, github }: ConnectedAccountsProps) {
   const connected: Record<Provider, boolean> = { google, github }
+
+  const t = useTranslations("common")
 
   return (
     <div className="space-y-3 p-5 sm:p-7">
@@ -35,7 +38,7 @@ export function ConnectedAccounts({ google, github }: ConnectedAccountsProps) {
               <div>
                 <p className="text-xs font-medium">{name}</p>
                 <p className="text-[10px] text-muted-foreground">
-                  {isConnected ? "Подключено" : "Не подключено"}
+                  {isConnected ? t("connected") : t("notConnected")}
                 </p>
               </div>
             </div>
